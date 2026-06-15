@@ -70,6 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.92);
 .disc-card.sound .bracket{border-color:var(--sound)}
 .disc-card.lighting .bracket{border-color:var(--light)}
 .disc-card.video .bracket{border-color:var(--video)}
+.disc-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:2px;margin-bottom:1.5rem}
 .disc-card-color{width:48px;height:3px;margin-bottom:2rem;border-radius:1px}
 .disc-card-num{font-size:11px;font-weight:600;letter-spacing:0.2em;color:var(--text-muted);margin-bottom:1rem}
 .disc-card-name{font-size:clamp(28px,3vw,42px);font-weight:800;line-height:1;letter-spacing:-0.02em;margin-bottom:1rem;text-transform:uppercase}
@@ -182,6 +183,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <div class="disc-grid">
         <div class="disc-card sound" onclick="showPage('sound')">
           <div class="bracket bracket-tl"></div><div class="bracket bracket-tr"></div><div class="bracket bracket-bl"></div><div class="bracket bracket-br"></div>
+          <img class="disc-card-img" src="images/Sound.JPEG" alt="Sound Club">
           <div class="disc-card-color" style="background:var(--sound)"></div>
           <div class="disc-card-num">01</div>
           <div class="disc-card-name">Sound<br>Club</div>
@@ -196,6 +198,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
         </div>
         <div class="disc-card lighting" onclick="showPage('lighting')">
           <div class="bracket bracket-tl"></div><div class="bracket bracket-tr"></div><div class="bracket bracket-bl"></div><div class="bracket bracket-br"></div>
+          <img class="disc-card-img" src="images/Lights.PNG" alt="Lighting Club">
           <div class="disc-card-color" style="background:var(--light)"></div>
           <div class="disc-card-num">02</div>
           <div class="disc-card-name">Lighting<br>Club</div>
@@ -210,6 +213,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
         </div>
         <div class="disc-card video" onclick="showPage('video')">
           <div class="bracket bracket-tl"></div><div class="bracket bracket-tr"></div><div class="bracket bracket-bl"></div><div class="bracket bracket-br"></div>
+          <img class="disc-card-img" src="images/Video.jpg" alt="Video Club">
           <div class="disc-card-color" style="background:var(--video)"></div>
           <div class="disc-card-num">03</div>
           <div class="disc-card-name">Video<br>Club</div>

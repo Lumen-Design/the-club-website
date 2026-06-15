@@ -23,18 +23,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.92);
 .nav-link.sound:hover,.nav-link.sound.active{color:var(--sound)}
 .nav-link.lighting:hover,.nav-link.lighting.active{color:var(--light)}
 .nav-link.video:hover,.nav-link.video.active{color:var(--video)}
-.corner-sym{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:20px;height:20px}
-.corner-sym .c{border-radius:1px}
-.corner-sym .tl{background:var(--white)}
-.corner-sym .tr{background:var(--sound)}
-.corner-sym .bl{background:var(--video)}
-.corner-sym .br{background:var(--light)}
-.corner-sym-lg{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-.corner-sym-lg .c{border-radius:1px}
-.corner-sym-lg .tl{background:var(--white)}
-.corner-sym-lg .tr{background:var(--sound)}
-.corner-sym-lg .bl{background:var(--video)}
-.corner-sym-lg .br{background:var(--light)}
+.corner-sym{position:relative;width:20px;height:20px}
+.corner-sym .b{position:absolute;width:8px;height:8px;border-style:solid;border-color:transparent}
+.corner-sym .b-tl{top:0;left:0;border-top-width:2px;border-left-width:2px;border-top-color:var(--white);border-left-color:var(--white)}
+.corner-sym .b-tr{top:0;right:0;border-top-width:2px;border-right-width:2px;border-top-color:var(--sound);border-right-color:var(--sound)}
+.corner-sym .b-bl{bottom:0;left:0;border-bottom-width:2px;border-left-width:2px;border-bottom-color:var(--video);border-left-color:var(--video)}
+.corner-sym .b-br{bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;border-bottom-color:var(--light);border-right-color:var(--light)}
+.corner-sym-lg{position:relative}
+.corner-sym-lg .b{position:absolute;border-style:solid;border-color:transparent}
+.corner-sym-lg .b-tl{top:0;left:0;border-top-width:2px;border-left-width:2px;border-top-color:var(--white);border-left-color:var(--white)}
+.corner-sym-lg .b-tr{top:0;right:0;border-top-width:2px;border-right-width:2px;border-top-color:var(--sound);border-right-color:var(--sound)}
+.corner-sym-lg .b-bl{bottom:0;left:0;border-bottom-width:2px;border-left-width:2px;border-bottom-color:var(--video);border-left-color:var(--video)}
+.corner-sym-lg .b-br{bottom:0;right:0;border-bottom-width:2px;border-right-width:2px;border-bottom-color:var(--light);border-right-color:var(--light)}
+.hero-sym{position:relative;width:clamp(48px,8vw,72px);height:clamp(48px,8vw,72px);flex-shrink:0;align-self:flex-end;margin-left:0.15em}
+.hero-sym .b{position:absolute;width:35%;height:35%;border-style:solid;border-color:transparent}
+.hero-sym .b-tl{top:0;left:0;border-top-width:3px;border-left-width:3px;border-top-color:var(--white);border-left-color:var(--white)}
+.hero-sym .b-tr{top:0;right:0;border-top-width:3px;border-right-width:3px;border-top-color:var(--sound);border-right-color:var(--sound)}
+.hero-sym .b-bl{bottom:0;left:0;border-bottom-width:3px;border-left-width:3px;border-bottom-color:var(--video);border-left-color:var(--video)}
+.hero-sym .b-br{bottom:0;right:0;border-bottom-width:3px;border-right-width:3px;border-bottom-color:var(--light);border-right-color:var(--light)}
 .page{display:none;padding-top:60px;min-height:100vh}
 .page.active{display:block}
 .hero{min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 2rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
@@ -142,8 +148,8 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')">
       <div class="corner-sym">
-        <div class="c tl"></div><div class="c tr"></div>
-        <div class="c bl"></div><div class="c br"></div>
+        <div class="b b-tl"></div><div class="b b-tr"></div>
+        <div class="b b-bl"></div><div class="b b-br"></div>
       </div>
       <span class="nav-wordmark">The Club</span>
     </div>
@@ -162,7 +168,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <div class="hero-bg-grid"></div>
     <div class="hero-inner">
       <p class="hero-eyebrow">Sound Club · Lighting Club · Video Club</p>
-      <h1 class="hero-title">THE<br>CLUB</h1>
+      <h1 class="hero-title">THE<br><span style="display:inline-flex;align-items:flex-end">CLUB<div class="hero-sym"><div class="b b-tl"></div><div class="b b-tr"></div><div class="b b-bl"></div><div class="b b-br"></div></div></span></h1>
       <div class="hero-sub">
         <p class="hero-tagline">Three disciplines.<br>One standard.</p>
         <p class="hero-descriptor">A collective of independent specialists uniting sound, lighting, and video to elevate experiences through technology and design.</p>
@@ -223,9 +229,9 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   <section class="manifesto">
     <div class="manifesto-inner">
       <div style="display:flex;justify-content:center;margin-bottom:3rem">
-        <div class="corner-sym-lg" style="width:48px;height:48px;gap:4px">
-          <div class="c tl" style="border-radius:2px"></div><div class="c tr" style="border-radius:2px"></div>
-          <div class="c bl" style="border-radius:2px"></div><div class="c br" style="border-radius:2px"></div>
+        <div class="corner-sym-lg" style="width:48px;height:48px">
+          <div class="b b-tl" style="width:14px;height:14px"></div><div class="b b-tr" style="width:14px;height:14px"></div>
+          <div class="b b-bl" style="width:14px;height:14px"></div><div class="b b-br" style="width:14px;height:14px"></div>
         </div>
       </div>
       <h2 class="manifesto-title">The Club<br>isn't a company.<br>It's a collective.</h2>
@@ -285,8 +291,8 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <div>
         <div class="footer-brand">
           <div class="corner-sym">
-            <div class="c tl"></div><div class="c tr"></div>
-            <div class="c bl"></div><div class="c br"></div>
+            <div class="b b-tl"></div><div class="b b-tr"></div>
+            <div class="b b-bl"></div><div class="b b-br"></div>
           </div>
           <span class="footer-word">The Club</span>
         </div>

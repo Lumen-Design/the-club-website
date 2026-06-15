@@ -1,1092 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>THE CLUB</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <style>
-/* ── Reset & Base ── */
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: #050505;
-  color: #ffffff;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; }
-
-/* ── Color Tokens ── */
-:root {
-  --white: #ffffff;
-  --blue: #0066FF;
-  --magenta: #FF0088;
-  --green: #A8FF00;
-  --bg: #050505;
-  --surface: #111111;
-  --surface-hover: #1a1a1a;
-  --border: #222222;
-  --text-muted: #777777;
-  --nav-height: 72px;
-}
-
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-
-/* ── Nav ── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: var(--nav-height);
-  background: rgba(5,5,5,0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  z-index: 1000;
-}
-
-.logo {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  width: 32px; height: 32px;
-  gap: 3px;
-  cursor: pointer;
-}
-.logo-q { border-radius: 2px; }
-.logo-q:nth-child(1) { background: var(--white); }
-.logo-q:nth-child(2) { background: var(--blue); }
-.logo-q:nth-child(3) { background: var(--magenta); }
-.logo-q:nth-child(4) { background: var(--green); }
-
-.nav-links {
-  display: flex;
-  gap: 36px;
-  align-items: center;
-}
-.nav-links a {
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  transition: color 0.3s;
-  position: relative;
-}
-.nav-links a:hover,
-.nav-links a.active { color: var(--white); }
-.nav-links a.active::after {
-  content: '';
-  position: absolute;
-  bottom: -4px; left: 0; right: 0;
-  height: 2px;
-  background: var(--white);
-  border-radius: 1px;
-}
-
-.nav-cta {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 10px 24px;
-  border: 1px solid var(--white);
-  border-radius: 100px;
-  transition: all 0.3s;
-  cursor: pointer;
-  background: none;
-  color: var(--white);
-}
-.nav-cta:hover {
-  background: var(--white);
-  color: var(--bg);
-}
-
-/* ── Mobile Nav Toggle ── */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px; height: 2px;
-  background: var(--white);
-  border-radius: 1px;
-  transition: all 0.3s;
-}
-
-/* ── Page Sections ── */
-.page {
-  display: none;
-  min-height: 100vh;
-  padding-top: var(--nav-height);
-}
-.page.active { display: block; }
-
-/* ── Hero ── */
-.hero {
-  min-height: calc(100vh - var(--nav-height));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 80px 40px;
-  position: relative;
-}
-
-.hero-headline {
-  font-size: clamp(72px, 12vw, 180px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-  margin-bottom: 32px;
-  background: linear-gradient(135deg, var(--white) 0%, #999 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-sub {
-  font-size: clamp(16px, 2vw, 22px);
-  font-weight: 300;
-  color: var(--text-muted);
-  max-width: 600px;
-  line-height: 1.6;
-  margin-bottom: 48px;
-}
-
-.hero-cta-group {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 16px 40px;
-  background: var(--white);
-  color: var(--bg);
-  border: none;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,255,255,0.15); }
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 16px 40px;
-  background: transparent;
-  color: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.btn-secondary:hover { border-color: var(--white); }
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-muted);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  animation: pulse 2s ease-in-out infinite;
-}
-.scroll-indicator .line {
-  width: 1px; height: 40px;
-  background: linear-gradient(to bottom, var(--text-muted), transparent);
-}
-@keyframes pulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
-
-/* ── Section Containers ── */
-.section {
-  padding: 120px 40px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.section-label {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-}
-.section-title {
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 24px;
-}
-.section-desc {
-  font-size: 18px;
-  font-weight: 300;
-  color: var(--text-muted);
-  max-width: 600px;
-  line-height: 1.7;
-  margin-bottom: 64px;
-}
-
-/* ── Discipline Cards ── */
-.disciplines-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.discipline-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 48px 36px;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-.discipline-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.discipline-card:hover {
-  transform: translateY(-4px);
-  border-color: #333;
-  background: var(--surface-hover);
-}
-.discipline-card:hover::before { opacity: 1; }
-
-.discipline-card[data-color="blue"]::before { background: var(--blue); }
-.discipline-card[data-color="magenta"]::before { background: var(--magenta); }
-.discipline-card[data-color="green"]::before { background: var(--green); }
-
-.discipline-icon {
-  width: 56px; height: 56px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  margin-bottom: 28px;
-}
-.discipline-card[data-color="blue"] .discipline-icon {
-  background: rgba(0,102,255,0.12);
-  color: var(--blue);
-}
-.discipline-card[data-color="magenta"] .discipline-icon {
-  background: rgba(255,0,136,0.12);
-  color: var(--magenta);
-}
-.discipline-card[data-color="green"] .discipline-icon {
-  background: rgba(168,255,0,0.12);
-  color: var(--green);
-}
-
-.discipline-card h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -0.02em;
-}
-.discipline-card p {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-bottom: 24px;
-}
-.discipline-card .card-link {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: gap 0.3s;
-}
-.discipline-card[data-color="blue"] .card-link { color: var(--blue); }
-.discipline-card[data-color="magenta"] .card-link { color: var(--magenta); }
-.discipline-card[data-color="green"] .card-link { color: var(--green); }
-.discipline-card:hover .card-link { gap: 12px; }
-
-/* ── Manifesto ── */
-.manifesto {
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.manifesto-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 120px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.manifesto-text h2 {
-  font-size: clamp(36px, 5vw, 60px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin-bottom: 32px;
-}
-.manifesto-text h2 .highlight-blue { color: var(--blue); }
-.manifesto-text h2 .highlight-magenta { color: var(--magenta); }
-.manifesto-text h2 .highlight-green { color: var(--green); }
-.manifesto-text p {
-  font-size: 17px;
-  font-weight: 300;
-  color: var(--text-muted);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-.manifesto-values {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-.value-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-}
-.value-card .value-num {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.1em;
-  margin-bottom: 12px;
-}
-.value-card h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.value-card p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* ── Reps Section ── */
-.reps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.rep-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px 28px;
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.rep-card:hover {
-  transform: translateY(-4px);
-  border-color: #333;
-}
-.rep-avatar {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-.rep-card:nth-child(1) .rep-avatar { background: rgba(0,102,255,0.15); color: var(--blue); }
-.rep-card:nth-child(2) .rep-avatar { background: rgba(255,0,136,0.15); color: var(--magenta); }
-.rep-card:nth-child(3) .rep-avatar { background: rgba(168,255,0,0.15); color: var(--green); }
-.rep-card:nth-child(4) .rep-avatar { background: rgba(255,255,255,0.1); color: var(--white); }
-.rep-card h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-.rep-card .rep-role {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 16px;
-}
-.rep-card .rep-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-}
-
-/* ── Projects Grid ── */
-.filter-bar {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 48px;
-  flex-wrap: wrap;
-}
-.filter-btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 13px;
-  font-weight: 500;
-  padding: 10px 22px;
-  border-radius: 100px;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text-muted);
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.filter-btn:hover { border-color: #444; color: var(--white); }
-.filter-btn.active {
-  background: var(--white);
-  color: var(--bg);
-  border-color: var(--white);
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.project-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-}
-.project-card:hover {
-  transform: translateY(-4px);
-  border-color: #333;
-}
-.project-thumb {
-  width: 100%;
-  aspect-ratio: 16/10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-}
-.project-card[data-cat="sound"] .project-thumb { background: linear-gradient(135deg, #001a40 0%, #003399 100%); color: var(--blue); }
-.project-card[data-cat="lighting"] .project-thumb { background: linear-gradient(135deg, #2a0018 0%, #660044 100%); color: var(--magenta); }
-.project-card[data-cat="video"] .project-thumb { background: linear-gradient(135deg, #1a2600 0%, #4d7300 100%); color: var(--green); }
-.project-info {
-  padding: 24px;
-}
-.project-info h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  letter-spacing: -0.01em;
-}
-.project-info p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-.project-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.project-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 100px;
-}
-.project-card[data-cat="sound"] .project-tag { background: rgba(0,102,255,0.12); color: var(--blue); }
-.project-card[data-cat="lighting"] .project-tag { background: rgba(255,0,136,0.12); color: var(--magenta); }
-.project-card[data-cat="video"] .project-tag { background: rgba(168,255,0,0.12); color: var(--green); }
-.project-date {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-/* ── Club Sub-Pages ── */
-.club-hero {
-  min-height: 60vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 80px 40px;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-.club-hero .club-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-}
-.club-hero h1 {
-  font-size: clamp(48px, 8vw, 100px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  margin-bottom: 24px;
-}
-.club-hero .club-desc {
-  font-size: 20px;
-  font-weight: 300;
-  color: var(--text-muted);
-  max-width: 560px;
-  line-height: 1.7;
-}
-
-.page-sound .club-tag { color: var(--blue); }
-.page-sound h1 { color: var(--blue); }
-.page-lighting .club-tag { color: var(--magenta); }
-.page-lighting h1 { color: var(--magenta); }
-.page-video .club-tag { color: var(--green); }
-.page-video h1 { color: var(--green); }
-
-/* Club stats row */
-.club-stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 40px 80px;
-}
-.stat-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 28px;
-}
-.stat-card .stat-num {
-  font-size: 36px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 4px;
-}
-.stat-card .stat-label {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.page-sound .stat-num { color: var(--blue); }
-.page-lighting .stat-num { color: var(--magenta); }
-.page-video .stat-num { color: var(--green); }
-
-/* Club content section */
-.club-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 80px 40px;
-  border-top: 1px solid var(--border);
-}
-.club-content h2 {
-  font-size: 32px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  margin-bottom: 48px;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.service-item {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 32px;
-  transition: all 0.3s;
-}
-.service-item:hover { border-color: #333; }
-.service-item h4 {
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-.service-item p {
-  font-size: 14px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* ── Footer ── */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 60px 40px;
-}
-.footer-inner {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-text {
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-.footer-links a {
-  font-size: 13px;
-  color: var(--text-muted);
-  transition: color 0.3s;
-}
-.footer-links a:hover { color: var(--white); }
-
-/* ── Responsive ── */
-@media (max-width: 1024px) {
-  .disciplines-grid { grid-template-columns: 1fr; }
-  .reps-grid { grid-template-columns: repeat(2, 1fr); }
-  .projects-grid { grid-template-columns: repeat(2, 1fr); }
-  .manifesto-inner { grid-template-columns: 1fr; gap: 48px; }
-  .club-stats { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .nav-toggle { display: flex; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: var(--nav-height);
-    left: 0; right: 0;
-    background: rgba(5,5,5,0.98);
-    backdrop-filter: blur(20px);
-    padding: 24px;
-    gap: 20px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section { padding: 80px 20px; }
-  .hero { padding: 60px 20px; }
-  .reps-grid { grid-template-columns: 1fr; }
-  .projects-grid { grid-template-columns: 1fr; }
-  .manifesto-inner { padding: 80px 20px; }
-  .manifesto-values { grid-template-columns: 1fr; }
-  .club-hero { padding: 60px 20px; }
-  .club-stats { padding: 0 20px 60px; grid-template-columns: 1fr 1fr; }
-  .club-content { padding: 60px 20px; }
-  .services-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; gap: 20px; text-align: center; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#050505;--panel-a:#0A0A0A;--panel-b:#111111;--white:#FFFFFF;--sound:#0066FF;--light:#A8FF00;--video:#FF0088;--border:#1A1A1A;--text-muted:#666666;--text-dim:#333333}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;font-size:16px;line-height:1.5;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{border:none;background:none;cursor:pointer;font-family:inherit;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;padding:0 2rem}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1400px;margin:0 auto}
+.nav-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.nav-wordmark{font-size:13px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-link{font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);transition:color 0.2s;cursor:pointer}
+.nav-link:hover,.nav-link.active{color:var(--white)}
+.nav-link.sound:hover,.nav-link.sound.active{color:var(--sound)}
+.nav-link.lighting:hover,.nav-link.lighting.active{color:var(--light)}
+.nav-link.video:hover,.nav-link.video.active{color:var(--video)}
+.corner-sym{display:grid;grid-template-columns:1fr 1fr;gap:2px;width:20px;height:20px}
+.corner-sym .c{border-radius:1px}
+.corner-sym .tl{background:var(--white)}
+.corner-sym .tr{background:var(--sound)}
+.corner-sym .bl{background:var(--video)}
+.corner-sym .br{background:var(--light)}
+.corner-sym-lg{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.corner-sym-lg .c{border-radius:1px}
+.corner-sym-lg .tl{background:var(--white)}
+.corner-sym-lg .tr{background:var(--sound)}
+.corner-sym-lg .bl{background:var(--video)}
+.corner-sym-lg .br{background:var(--light)}
+.page{display:none;padding-top:60px;min-height:100vh}
+.page.active{display:block}
+.hero{min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 2rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:0.4}
+.hero-inner{max-width:1400px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-bottom:2rem}
+.hero-title{font-size:clamp(72px,12vw,180px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;text-transform:uppercase}
+.hero-sub{margin-top:3rem;display:flex;gap:4rem;align-items:flex-end}
+.hero-tagline{font-size:clamp(18px,2.5vw,28px);font-weight:300;line-height:1.3;color:rgba(255,255,255,0.7);max-width:520px}
+.hero-descriptor{font-size:13px;color:var(--text-muted);max-width:320px;line-height:1.7;margin-left:auto}
+.section{padding:5rem 2rem;border-bottom:1px solid var(--border)}
+.section-inner{max-width:1400px;margin:0 auto}
+.section-label{font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3rem}
+.disc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.disc-card{background:var(--panel-a);padding:3rem 2.5rem;cursor:pointer;transition:background 0.2s;position:relative;overflow:hidden}
+.disc-card:hover{background:var(--panel-b)}
+.disc-card-color{width:48px;height:3px;margin-bottom:2rem;border-radius:1px}
+.disc-card-num{font-size:11px;font-weight:600;letter-spacing:0.2em;color:var(--text-muted);margin-bottom:1rem}
+.disc-card-name{font-size:clamp(28px,3vw,42px);font-weight:800;line-height:1;letter-spacing:-0.02em;margin-bottom:1rem;text-transform:uppercase}
+.disc-card-sub{font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:2rem}
+.disc-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:2.5rem}
+.tag{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid;border-radius:2px}
+.tag.sound{color:var(--sound);border-color:rgba(0,102,255,0.3)}
+.tag.lighting{color:var(--light);border-color:rgba(168,255,0,0.3)}
+.tag.video{color:var(--video);border-color:rgba(255,0,136,0.3)}
+.disc-card-arrow{font-size:13px;font-weight:500;display:flex;align-items:center;gap:8px;color:var(--text-muted);transition:color 0.2s}
+.disc-card:hover .disc-card-arrow{color:var(--white)}
+.manifesto{padding:8rem 2rem;border-bottom:1px solid var(--border);text-align:center}
+.manifesto-inner{max-width:900px;margin:0 auto}
+.manifesto-title{font-size:clamp(36px,6vw,80px);font-weight:900;line-height:0.9;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:4rem}
+.manifesto-clubs{display:flex;justify-content:center;gap:4rem;margin-bottom:3rem}
+.manifesto-club-name{font-size:13px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase}
+.manifesto-club-name.s{color:var(--sound)}
+.manifesto-club-name.l{color:var(--light)}
+.manifesto-club-name.v{color:var(--video)}
+.manifesto-credo{font-size:14px;color:var(--text-muted);letter-spacing:0.05em;line-height:2}
+.reps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.rep-card{background:var(--panel-a);padding:2.5rem;transition:background 0.2s}
+.rep-card:hover{background:var(--panel-b)}
+.rep-avatar{width:72px;height:72px;border-radius:50%;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800}
+.rep-club{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.5rem}
+.rep-name{font-size:22px;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.25rem}
+.rep-role{font-size:13px;color:var(--text-muted)}
+.work-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:2.5rem}
+.filter-btn{font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:8px 16px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted);cursor:pointer;transition:all 0.2s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--white);color:var(--white)}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.project-card{background:var(--panel-a);padding:2rem;cursor:pointer;transition:background 0.2s;position:relative}
+.project-card:hover{background:var(--panel-b)}
+.project-img{width:100%;aspect-ratio:16/9;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;border-radius:2px;overflow:hidden}
+.project-img-label{font-size:11px;font-weight:700;letter-spacing:0.3em;color:rgba(255,255,255,0.2);text-transform:uppercase}
+.project-name{font-size:18px;font-weight:700;letter-spacing:-0.01em;margin-bottom:0.5rem}
+.project-location{font-size:12px;color:var(--text-muted);margin-bottom:1rem}
+.project-services{display:flex;gap:6px;flex-wrap:wrap}
+.svc-tag{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:1px}
+.svc-tag.s{background:rgba(0,102,255,0.15);color:var(--sound)}
+.svc-tag.l{background:rgba(168,255,0,0.12);color:var(--light)}
+.svc-tag.v{background:rgba(255,0,136,0.15);color:var(--video)}
+footer{padding:4rem 2rem;border-top:1px solid var(--border)}
+.footer-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:3rem}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.footer-word{font-size:15px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase}
+.footer-links{display:flex;flex-direction:column;gap:0.5rem}
+.footer-link{font-size:13px;color:var(--text-muted);cursor:pointer;transition:color 0.2s}
+.footer-link:hover{color:var(--white)}
+.footer-meta{font-size:12px;color:var(--text-dim);margin-top:2rem}
+.disc-hero{padding:5rem 2rem 4rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.disc-hero-inner{max-width:1400px;margin:0 auto;position:relative;z-index:1}
+.disc-hero-back{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;display:inline-flex;align-items:center;gap:6px;margin-bottom:3rem;transition:color 0.2s}
+.disc-hero-back:hover{color:var(--white)}
+.disc-hero-kicker{font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:1rem}
+.disc-hero-title{font-size:clamp(60px,10vw,140px);font-weight:900;line-height:0.88;letter-spacing:-0.03em;text-transform:uppercase;margin-bottom:2rem}
+.disc-hero-desc{font-size:clamp(16px,2vw,20px);font-weight:300;color:rgba(255,255,255,0.6);max-width:600px;line-height:1.6}
+.disc-accent-bar{position:absolute;top:0;right:0;width:6px;height:100%}
+.corner-card-overlay{position:absolute;top:1.5rem;right:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2px;width:16px;height:16px;opacity:0.3}
+@media(max-width:900px){
+.disc-grid,.reps-grid,.work-grid{grid-template-columns:1fr}
+.hero-sub{flex-direction:column;gap:1.5rem}
+.hero-descriptor{margin-left:0}
+.manifesto-clubs{flex-direction:column;gap:1.5rem;align-items:center}
+.footer-inner{flex-direction:column}
+.nav-links{gap:1rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ════════════ NAV ════════════ -->
 <nav>
-  <a class="logo" onclick="navigateTo('home')">
-    <div class="logo-q"></div>
-    <div class="logo-q"></div>
-    <div class="logo-q"></div>
-    <div class="logo-q"></div>
-  </a>
-  <div class="nav-links" id="navLinks">
-    <a href="#" class="active" data-page="home">Home</a>
-    <a href="#" data-page="sound">Sound Club</a>
-    <a href="#" data-page="lighting">Lighting Club</a>
-    <a href="#" data-page="video">Video Club</a>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <div class="corner-sym">
+        <div class="c tl"></div><div class="c tr"></div>
+        <div class="c bl"></div><div class="c br"></div>
+      </div>
+      <span class="nav-wordmark">The Club</span>
+    </div>
+    <div class="nav-links">
+      <span class="nav-link sound" onclick="showPage('sound')">Sound Club</span>
+      <span class="nav-link lighting" onclick="showPage('lighting')">Lighting Club</span>
+      <span class="nav-link video" onclick="showPage('video')">Video Club</span>
+      <span class="nav-link" onclick="scrollToContact()">Contact</span>
+    </div>
   </div>
-  <button class="nav-cta" onclick="navigateTo('home')">Join The Club</button>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- ════════════ HOME PAGE ════════════ -->
-<div class="page active" id="page-home">
-
-  <!-- Hero -->
+<!-- HOME -->
+<div id="page-home" class="page active">
   <section class="hero">
-    <h1 class="hero-headline">THE CLUB</h1>
-    <p class="hero-sub">A collective of sound engineers, lighting designers, and video artists pushing the boundaries of live production.</p>
-    <div class="hero-cta-group">
-      <button class="btn-primary" onclick="navigateTo('sound')">Explore Disciplines &rarr;</button>
-      <button class="btn-secondary">Watch Reel</button>
-    </div>
-    <div class="scroll-indicator">
-      <div class="line"></div>
-      Scroll
+    <div class="hero-bg-grid"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Sound Club · Lighting Club · Video Club</p>
+      <h1 class="hero-title">THE<br>CLUB</h1>
+      <div class="hero-sub">
+        <p class="hero-tagline">Three disciplines.<br>One standard.</p>
+        <p class="hero-descriptor">A collective of independent specialists uniting sound, lighting, and video to elevate experiences through technology and design.</p>
+      </div>
     </div>
   </section>
 
-  <!-- Disciplines -->
   <section class="section">
-    <p class="section-label">What We Do</p>
-    <h2 class="section-title">Three Disciplines.<br>One Vision.</h2>
-    <p class="section-desc">We unite sound, lighting, and video into seamless production experiences that elevate every moment.</p>
-    <div class="disciplines-grid">
-      <div class="discipline-card" data-color="blue" onclick="navigateTo('sound')">
-        <div class="discipline-icon">&#9835;</div>
-        <h3>Sound Club</h3>
-        <p>From intimate acoustic sets to stadium-scale systems, our sound engineers craft immersive audio landscapes that move people.</p>
-        <span class="card-link">Explore Sound &rarr;</span>
-      </div>
-      <div class="discipline-card" data-color="magenta" onclick="navigateTo('lighting')">
-        <div class="discipline-icon">&#9670;</div>
-        <h3>Lighting Club</h3>
-        <p>Transforming spaces through light. Our designers create atmospheric, dynamic lighting that breathes life into every event.</p>
-        <span class="card-link">Explore Lighting &rarr;</span>
-      </div>
-      <div class="discipline-card" data-color="green" onclick="navigateTo('video')">
-        <div class="discipline-icon">&#9654;</div>
-        <h3>Video Club</h3>
-        <p>Visual storytelling at its finest. Live feeds, generative art, and projection mapping that captivate audiences.</p>
-        <span class="card-link">Explore Video &rarr;</span>
+    <div class="section-inner">
+      <p class="section-label">The Disciplines</p>
+      <div class="disc-grid">
+        <div class="disc-card" onclick="showPage('sound')">
+          <div class="corner-card-overlay">
+            <div class="c" style="background:var(--white)"></div><div class="c" style="background:var(--sound)"></div>
+            <div class="c" style="background:var(--video)"></div><div class="c" style="background:var(--light)"></div>
+          </div>
+          <div class="disc-card-color" style="background:var(--sound)"></div>
+          <div class="disc-card-num">01</div>
+          <div class="disc-card-name">Sound<br>Club</div>
+          <p class="disc-card-sub">Audio engineering, system design, FOH mixing, RF, and playback. From venue to arena.</p>
+          <div class="disc-card-tags">
+            <span class="tag sound">FOH</span>
+            <span class="tag sound">Systems</span>
+            <span class="tag sound">RF</span>
+            <span class="tag sound">Playback</span>
+          </div>
+          <div class="disc-card-arrow">Enter Sound Club <span>→</span></div>
+        </div>
+        <div class="disc-card" onclick="showPage('lighting')">
+          <div class="corner-card-overlay">
+            <div class="c" style="background:var(--white)"></div><div class="c" style="background:var(--sound)"></div>
+            <div class="c" style="background:var(--video)"></div><div class="c" style="background:var(--light)"></div>
+          </div>
+          <div class="disc-card-color" style="background:var(--light)"></div>
+          <div class="disc-card-num">02</div>
+          <div class="disc-card-name">Lighting<br>Club</div>
+          <p class="disc-card-sub">Lighting design, visual design, creative direction, programming, and permanent installations.</p>
+          <div class="disc-card-tags">
+            <span class="tag lighting">Design</span>
+            <span class="tag lighting">Programming</span>
+            <span class="tag lighting">Install</span>
+            <span class="tag lighting">Creative</span>
+          </div>
+          <div class="disc-card-arrow">Enter Lighting Club <span>→</span></div>
+        </div>
+        <div class="disc-card" onclick="showPage('video')">
+          <div class="corner-card-overlay">
+            <div class="c" style="background:var(--white)"></div><div class="c" style="background:var(--sound)"></div>
+            <div class="c" style="background:var(--video)"></div><div class="c" style="background:var(--light)"></div>
+          </div>
+          <div class="disc-card-color" style="background:var(--video)"></div>
+          <div class="disc-card-num">03</div>
+          <div class="disc-card-name">Video<br>Club</div>
+          <p class="disc-card-sub">Broadcast, IMAG, live streaming, switching, camera direction, and content creation.</p>
+          <div class="disc-card-tags">
+            <span class="tag video">Broadcast</span>
+            <span class="tag video">IMAG</span>
+            <span class="tag video">Stream</span>
+            <span class="tag video">Camera</span>
+          </div>
+          <div class="disc-card-arrow">Enter Video Club <span>→</span></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Manifesto -->
   <section class="manifesto">
     <div class="manifesto-inner">
-      <div class="manifesto-text">
-        <h2>We don't just <span class="highlight-blue">set up</span> gear. We <span class="highlight-magenta">design</span> experiences that <span class="highlight-green">move</span> people.</h2>
-        <p>The Club was founded on a simple belief: production is an art form. Every frequency, every beam, every pixel should serve the moment.</p>
-        <p>We're a tight-knit crew of obsessives who care as much about the craft as the crowd. No shortcuts. No compromises. Just relentless pursuit of the perfect show.</p>
-      </div>
-      <div class="manifesto-values">
-        <div class="value-card">
-          <p class="value-num">01</p>
-          <h4>Craft First</h4>
-          <p>Technical excellence isn't optional — it's the foundation of everything we do.</p>
-        </div>
-        <div class="value-card">
-          <p class="value-num">02</p>
-          <h4>Unified Vision</h4>
-          <p>Sound, light, and video aren't separate departments. They're one experience.</p>
-        </div>
-        <div class="value-card">
-          <p class="value-num">03</p>
-          <h4>Push Boundaries</h4>
-          <p>If it's been done before, we find a way to do it better or do something new entirely.</p>
-        </div>
-        <div class="value-card">
-          <p class="value-num">04</p>
-          <h4>Serve the Moment</h4>
-          <p>Every decision serves the audience experience. Ego stays in the parking lot.</p>
+      <div style="display:flex;justify-content:center;margin-bottom:3rem">
+        <div class="corner-sym-lg" style="width:48px;height:48px;gap:4px">
+          <div class="c tl" style="border-radius:2px"></div><div class="c tr" style="border-radius:2px"></div>
+          <div class="c bl" style="border-radius:2px"></div><div class="c br" style="border-radius:2px"></div>
         </div>
       </div>
+      <h2 class="manifesto-title">The Club<br>isn't a company.<br>It's a collective.</h2>
+      <div class="manifesto-clubs">
+        <span class="manifesto-club-name s">Sound Club</span>
+        <span class="manifesto-club-name l">Lighting Club</span>
+        <span class="manifesto-club-name v">Video Club</span>
+      </div>
+      <p class="manifesto-credo">Independent specialists. Shared standards. One team.</p>
     </div>
   </section>
 
-  <!-- Reps -->
   <section class="section">
-    <p class="section-label">The Team</p>
-    <h2 class="section-title">Our Reps</h2>
-    <p class="section-desc">The people behind the productions. Each rep leads their discipline with passion and precision.</p>
-    <div class="reps-grid">
-      <div class="rep-card">
-        <div class="rep-avatar">JD</div>
-        <h4>Jordan Davis</h4>
-        <p class="rep-role">Sound Director</p>
-        <span class="rep-tag">Sound Club</span>
-      </div>
-      <div class="rep-card">
-        <div class="rep-avatar">MR</div>
-        <h4>Morgan Riley</h4>
-        <p class="rep-role">Lighting Director</p>
-        <span class="rep-tag">Lighting Club</span>
-      </div>
-      <div class="rep-card">
-        <div class="rep-avatar">AK</div>
-        <h4>Alex Kim</h4>
-        <p class="rep-role">Video Director</p>
-        <span class="rep-tag">Video Club</span>
-      </div>
-      <div class="rep-card">
-        <div class="rep-avatar">SP</div>
-        <h4>Sam Patel</h4>
-        <p class="rep-role">Executive Producer</p>
-        <span class="rep-tag">Operations</span>
+    <div class="section-inner">
+      <p class="section-label">The People</p>
+      <div class="reps-grid">
+        <div class="rep-card">
+          <div class="rep-avatar" style="background:rgba(0,102,255,0.15);color:var(--sound)">SC</div>
+          <div class="rep-club" style="color:var(--sound)">Sound Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Audio Director</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-avatar" style="background:rgba(168,255,0,0.12);color:var(--light)">LC</div>
+          <div class="rep-club" style="color:var(--light)">Lighting Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Creative Director</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-avatar" style="background:rgba(255,0,136,0.15);color:var(--video)">VC</div>
+          <div class="rep-club" style="color:var(--video)">Video Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Video Director</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
+  <section class="section" id="work-section">
+    <div class="section-inner">
+      <p class="section-label">Featured Work</p>
+      <div class="work-filters" id="home-filters">
+        <button class="filter-btn active" onclick="filterProjects('all','home')">All</button>
+        <button class="filter-btn" onclick="filterProjects('audio','home')">Audio</button>
+        <button class="filter-btn" onclick="filterProjects('lighting','home')">Lighting</button>
+        <button class="filter-btn" onclick="filterProjects('video','home')">Video</button>
+        <button class="filter-btn" onclick="filterProjects('install','home')">Install</button>
+        <button class="filter-btn" onclick="filterProjects('broadcast','home')">Broadcast</button>
+        <button class="filter-btn" onclick="filterProjects('live','home')">Live Events</button>
+      </div>
+      <div class="work-grid" id="home-work-grid"></div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <div class="corner-sym">
+            <div class="c tl"></div><div class="c tr"></div>
+            <div class="c bl"></div><div class="c br"></div>
+          </div>
+          <span class="footer-word">The Club</span>
+        </div>
+        <p class="footer-meta">Independent specialists. Shared standards. One team.</p>
+      </div>
+      <div>
+        <div class="footer-links">
+          <span class="footer-link" onclick="showPage('sound')" style="color:var(--sound)">Sound Club</span>
+          <span class="footer-link" onclick="showPage('lighting')" style="color:var(--light)">Lighting Club</span>
+          <span class="footer-link" onclick="showPage('video')" style="color:var(--video)">Video Club</span>
+        </div>
+      </div>
+      <div>
+        <div class="footer-links">
+          <span class="footer-link">Instagram</span>
+          <span class="footer-link">hello@theclub.studio</span>
+          <span class="footer-link">— Location —</span>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:1400px;margin:3rem auto 0;border-top:1px solid var(--border);padding-top:1.5rem">
+      <p style="font-size:11px;color:var(--text-dim)">© 2025 The Club. All rights reserved.</p>
+    </div>
+  </footer>
+</div>
+
+<!-- SOUND -->
+<div id="page-sound" class="page">
+  <section class="disc-hero" style="background:linear-gradient(135deg,#050505 0%,#000A1F 100%)">
+    <div class="disc-accent-bar" style="background:var(--sound)"></div>
+    <div class="disc-hero-inner">
+      <span class="disc-hero-back" onclick="showPage('home')">← THE CLUB</span>
+      <div class="disc-hero-kicker" style="color:var(--sound)">Sound Club</div>
+      <h1 class="disc-hero-title">Sound<br><span style="color:var(--sound)">Club</span></h1>
+      <p class="disc-hero-desc">Audio engineering at every scale. FOH mixing, system design, RF coordination, and playback — built for the demands of professional production.</p>
+    </div>
+  </section>
   <section class="section">
-    <p class="section-label">Our Work</p>
-    <h2 class="section-title">Featured Projects</h2>
-    <p class="section-desc">A selection of productions that showcase what happens when disciplines collide.</p>
-    <div class="filter-bar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="sound">Sound</button>
-      <button class="filter-btn" data-filter="lighting">Lighting</button>
-      <button class="filter-btn" data-filter="video">Video</button>
-    </div>
-    <div class="projects-grid" id="projectsGrid">
-      <div class="project-card" data-cat="sound">
-        <div class="project-thumb">S01</div>
-        <div class="project-info">
-          <h4>Warehouse Sessions</h4>
-          <p>Multi-channel immersive sound installation for a 2,000-capacity industrial venue.</p>
-          <div class="project-meta">
-            <span class="project-tag">Sound</span>
-            <span class="project-date">2025</span>
-          </div>
+    <div class="section-inner">
+      <p class="section-label" style="color:var(--sound)">What We Do</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">FOH Mixing</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Front-of-house engineering for live events, tours, and corporate productions.</p>
         </div>
-      </div>
-      <div class="project-card" data-cat="lighting">
-        <div class="project-thumb">L01</div>
-        <div class="project-info">
-          <h4>Neon Cathedral</h4>
-          <p>Architectural lighting design transforming a cathedral into a pulsing light sculpture.</p>
-          <div class="project-meta">
-            <span class="project-tag">Lighting</span>
-            <span class="project-date">2025</span>
-          </div>
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">System Design</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Permanent and temporary audio system architecture from specification to commissioning.</p>
         </div>
-      </div>
-      <div class="project-card" data-cat="video">
-        <div class="project-thumb">V01</div>
-        <div class="project-info">
-          <h4>Digital Horizons</h4>
-          <p>360-degree projection mapping for an outdoor festival main stage experience.</p>
-          <div class="project-meta">
-            <span class="project-tag">Video</span>
-            <span class="project-date">2025</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card" data-cat="sound">
-        <div class="project-thumb">S02</div>
-        <div class="project-info">
-          <h4>Frequency</h4>
-          <p>Bespoke sound system design and tuning for an underground electronic music club.</p>
-          <div class="project-meta">
-            <span class="project-tag">Sound</span>
-            <span class="project-date">2024</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card" data-cat="lighting">
-        <div class="project-thumb">L02</div>
-        <div class="project-info">
-          <h4>Lumina Gala</h4>
-          <p>Dynamic lighting for a 500-guest corporate gala with real-time mood transitions.</p>
-          <div class="project-meta">
-            <span class="project-tag">Lighting</span>
-            <span class="project-date">2024</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-card" data-cat="video">
-        <div class="project-thumb">V02</div>
-        <div class="project-info">
-          <h4>Synthwave Live</h4>
-          <p>Real-time generative visuals synced to live performance for a touring artist.</p>
-          <div class="project-meta">
-            <span class="project-tag">Video</span>
-            <span class="project-date">2024</span>
-          </div>
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">RF & Playback</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">RF coordination, IEM systems, and multi-track playback for complex productions.</p>
         </div>
       </div>
     </div>
   </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">The Representative</p>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border)">
+        <div class="rep-card">
+          <div class="rep-avatar" style="background:rgba(0,102,255,0.15);color:var(--sound)">SC</div>
+          <div class="rep-club" style="color:var(--sound)">Sound Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Audio Director</div>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem">
+          <p style="font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.65)">Placeholder bio. Add the Sound Club founder's story here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">Sound Club Work</p>
+      <div class="work-filters" id="sound-filters">
+        <button class="filter-btn active" onclick="filterProjects('all','sound')">All</button>
+        <button class="filter-btn" onclick="filterProjects('audio','sound')">Audio</button>
+        <button class="filter-btn" onclick="filterProjects('install','sound')">Install</button>
+        <button class="filter-btn" onclick="filterProjects('live','sound')">Live Events</button>
+      </div>
+      <div class="work-grid" id="sound-work-grid"></div>
+    </div>
+  </section>
+  <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+      <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
+      <span style="font-size:13px;color:var(--sound)">Sound Club</span>
+    </div>
+  </footer>
 </div>
 
-<!-- ════════════ SOUND CLUB PAGE ════════════ -->
-<div class="page page-sound" id="page-sound">
-  <section class="club-hero">
-    <span class="club-tag">&#9835; Sound Club</span>
-    <h1>Sound<br>Club</h1>
-    <p class="club-desc">Crafting immersive audio experiences from concept to crowd. System design, tuning, mixing, and everything in between.</p>
-  </section>
-  <div class="club-stats">
-    <div class="stat-card"><div class="stat-num">120+</div><div class="stat-label">Shows Mixed</div></div>
-    <div class="stat-card"><div class="stat-num">48</div><div class="stat-label">Venues</div></div>
-    <div class="stat-card"><div class="stat-num">16</div><div class="stat-label">System Designs</div></div>
-    <div class="stat-card"><div class="stat-num">4</div><div class="stat-label">Engineers</div></div>
-  </div>
-  <section class="club-content">
-    <h2>What We Offer</h2>
-    <div class="services-grid">
-      <div class="service-item"><h4>Live Sound Mixing</h4><p>Front-of-house and monitor mixing for concerts, festivals, and corporate events of any scale.</p></div>
-      <div class="service-item"><h4>System Design</h4><p>Custom PA system design and deployment optimized for your venue's unique acoustics.</p></div>
-      <div class="service-item"><h4>Studio Recording</h4><p>Multitrack recording and post-production with industry-standard equipment and expertise.</p></div>
-      <div class="service-item"><h4>Acoustic Consulting</h4><p>Venue analysis, treatment recommendations, and acoustic optimization for permanent installations.</p></div>
+<!-- LIGHTING -->
+<div id="page-lighting" class="page">
+  <section class="disc-hero" style="background:linear-gradient(135deg,#050505 0%,#0A1200 100%)">
+    <div class="disc-accent-bar" style="background:var(--light)"></div>
+    <div class="disc-hero-inner">
+      <span class="disc-hero-back" onclick="showPage('home')">← THE CLUB</span>
+      <div class="disc-hero-kicker" style="color:var(--light)">Lighting Club</div>
+      <h1 class="disc-hero-title">Lighting<br><span style="color:var(--light)">Club</span></h1>
+      <p class="disc-hero-desc">Lighting design is just the start. Visual design, environmental design, creative direction, and permanent systems — built for spaces that demand to be seen differently.</p>
     </div>
   </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label" style="color:var(--light)">What We Do</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:0.75rem">Lighting Design</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">From concept to console — live event design, touring, and architectural lighting.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:0.75rem">Visual & Creative</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Environmental design, graphic design, and creative technology for immersive experiences.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--light);margin-bottom:0.75rem">Permanent Install</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Permanent lighting systems, programming, and commissioning for houses of worship, venues, and corporate spaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">The Representative</p>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border)">
+        <div class="rep-card">
+          <div class="rep-avatar" style="background:rgba(168,255,0,0.12);color:var(--light)">LC</div>
+          <div class="rep-club" style="color:var(--light)">Lighting Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Creative Director</div>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem">
+          <p style="font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.65)">Placeholder bio. Add the Lighting Club founder's story here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">Lighting Club Work</p>
+      <div class="work-filters" id="lighting-filters">
+        <button class="filter-btn active" onclick="filterProjects('all','lighting')">All</button>
+        <button class="filter-btn" onclick="filterProjects('lighting','lighting')">Lighting</button>
+        <button class="filter-btn" onclick="filterProjects('install','lighting')">Install</button>
+        <button class="filter-btn" onclick="filterProjects('live','lighting')">Live Events</button>
+      </div>
+      <div class="work-grid" id="lighting-work-grid"></div>
+    </div>
+  </section>
+  <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+      <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
+      <span style="font-size:13px;color:var(--light)">Lighting Club</span>
+    </div>
+  </footer>
 </div>
 
-<!-- ════════════ LIGHTING CLUB PAGE ════════════ -->
-<div class="page page-lighting" id="page-lighting">
-  <section class="club-hero">
-    <span class="club-tag">&#9670; Lighting Club</span>
-    <h1>Lighting<br>Club</h1>
-    <p class="club-desc">Designing with light to create atmosphere, emotion, and spectacle. From subtle washes to full-scale productions.</p>
-  </section>
-  <div class="club-stats">
-    <div class="stat-card"><div class="stat-num">200+</div><div class="stat-label">Shows Lit</div></div>
-    <div class="stat-card"><div class="stat-num">35</div><div class="stat-label">Venues</div></div>
-    <div class="stat-card"><div class="stat-num">24</div><div class="stat-label">Custom Rigs</div></div>
-    <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Designers</div></div>
-  </div>
-  <section class="club-content">
-    <h2>What We Offer</h2>
-    <div class="services-grid">
-      <div class="service-item"><h4>Concert Lighting</h4><p>Dynamic, music-reactive lighting design for live performances and touring productions.</p></div>
-      <div class="service-item"><h4>Architectural Lighting</h4><p>Permanent and temporary installations that transform buildings and spaces through light.</p></div>
-      <div class="service-item"><h4>Event Design</h4><p>Complete lighting packages for corporate events, galas, weddings, and private functions.</p></div>
-      <div class="service-item"><h4>Programming & Viz</h4><p>Advanced fixture programming, timecode shows, and pre-visualization for complex productions.</p></div>
+<!-- VIDEO -->
+<div id="page-video" class="page">
+  <section class="disc-hero" style="background:linear-gradient(135deg,#050505 0%,#1A000D 100%)">
+    <div class="disc-accent-bar" style="background:var(--video)"></div>
+    <div class="disc-hero-inner">
+      <span class="disc-hero-back" onclick="showPage('home')">← THE CLUB</span>
+      <div class="disc-hero-kicker" style="color:var(--video)">Video Club</div>
+      <h1 class="disc-hero-title">Video<br><span style="color:var(--video)">Club</span></h1>
+      <p class="disc-hero-desc">Broadcast, IMAG, live production, switching, camera direction, streaming, and content creation. Built for the broadcast floor and the arena stage.</p>
     </div>
   </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label" style="color:var(--video)">What We Do</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--video);margin-bottom:0.75rem">Broadcast & IMAG</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Broadcast control, IMAG direction, and multi-camera production for live events.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--video);margin-bottom:0.75rem">Live Streaming</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">End-to-end streaming solutions, encoding, and distribution for any audience size.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2rem">
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--video);margin-bottom:0.75rem">Content Creation</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Motion graphics, video content production, and creative assets for live environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">The Representative</p>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border)">
+        <div class="rep-card">
+          <div class="rep-avatar" style="background:rgba(255,0,136,0.15);color:var(--video)">VC</div>
+          <div class="rep-club" style="color:var(--video)">Video Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Video Director</div>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem">
+          <p style="font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.65)">Placeholder bio. Add the Video Club founder's story here.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">Video Club Work</p>
+      <div class="work-filters" id="video-filters">
+        <button class="filter-btn active" onclick="filterProjects('all','video')">All</button>
+        <button class="filter-btn" onclick="filterProjects('video','video')">Video</button>
+        <button class="filter-btn" onclick="filterProjects('broadcast','video')">Broadcast</button>
+        <button class="filter-btn" onclick="filterProjects('live','video')">Live Events</button>
+      </div>
+      <div class="work-grid" id="video-work-grid"></div>
+    </div>
+  </section>
+  <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+      <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
+      <span style="font-size:13px;color:var(--video)">Video Club</span>
+    </div>
+  </footer>
 </div>
 
-<!-- ════════════ VIDEO CLUB PAGE ════════════ -->
-<div class="page page-video" id="page-video">
-  <section class="club-hero">
-    <span class="club-tag">&#9654; Video Club</span>
-    <h1>Video<br>Club</h1>
-    <p class="club-desc">Visual storytelling through live production, generative art, projection mapping, and real-time content creation.</p>
-  </section>
-  <div class="club-stats">
-    <div class="stat-card"><div class="stat-num">80+</div><div class="stat-label">Productions</div></div>
-    <div class="stat-card"><div class="stat-num">20</div><div class="stat-label">Festivals</div></div>
-    <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Mapping Projects</div></div>
-    <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">Artists</div></div>
-  </div>
-  <section class="club-content">
-    <h2>What We Offer</h2>
-    <div class="services-grid">
-      <div class="service-item"><h4>Live IMAG</h4><p>Multi-camera live production and image magnification for concerts, conferences, and broadcasts.</p></div>
-      <div class="service-item"><h4>Projection Mapping</h4><p>Large-scale projection mapping on buildings, stages, and custom structures.</p></div>
-      <div class="service-item"><h4>Generative Visuals</h4><p>Real-time generative art and audio-reactive content for immersive performances.</p></div>
-      <div class="service-item"><h4>Content Creation</h4><p>Motion graphics, show loops, and custom video content designed for LED and projection.</p></div>
-    </div>
-  </section>
-</div>
-
-<!-- ════════════ FOOTER ════════════ -->
-<footer>
-  <div class="footer-inner">
-    <p class="footer-text">&copy; 2025 The Club. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Instagram</a>
-      <a href="#">Twitter</a>
-      <a href="#">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<!-- ════════════ JAVASCRIPT ════════════ -->
 <script>
-// ── SPA Navigation ──
-function navigateTo(page) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
-
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.classList.toggle('active', a.dataset.page === page);
-  });
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  // Close mobile nav
-  document.getElementById('navLinks').classList.remove('open');
+const PROJECTS=[
+  {id:1,name:"Summit Conference 2024",location:"Austin, TX",tags:["audio","lighting","video","live"],services:["s","l","v"],bg:"#0A0E1A"},
+  {id:2,name:"First Baptist Magnolia",location:"Magnolia, TX",tags:["audio","lighting","install"],services:["s","l"],bg:"#0A1205"},
+  {id:3,name:"Arena Tour — Spring Run",location:"National",tags:["audio","lighting","video","live"],services:["s","l","v"],bg:"#1A000A"},
+  {id:4,name:"Corporate Broadcast",location:"Houston, TX",tags:["video","broadcast"],services:["v"],bg:"#0A001A"},
+  {id:5,name:"House of Worship Install",location:"Dallas, TX",tags:["audio","lighting","install"],services:["s","l"],bg:"#001005"},
+  {id:6,name:"Festival Main Stage",location:"New Orleans, LA",tags:["audio","lighting","live"],services:["s","l"],bg:"#0A0A00"},
+  {id:7,name:"Network Sports Broadcast",location:"Atlanta, GA",tags:["video","broadcast","live"],services:["v"],bg:"#1A0010"},
+  {id:8,name:"Permanent Lighting Rig",location:"Nashville, TN",tags:["lighting","install"],services:["l"],bg:"#050A00"},
+  {id:9,name:"Multi-Cam Live Event",location:"Tampa, FL",tags:["video","audio","live"],services:["s","v"],bg:"#00050A"},
+];
+const SVC_LABELS={s:"Audio",l:"Lighting",v:"Video"};
+function projectCardHTML(p){
+  const svcTags=p.services.map(s=>`<span class="svc-tag ${s}">${SVC_LABELS[s]}</span>`).join('');
+  return `<div class="project-card" style="background:${p.bg}">
+    <div class="project-img" style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)">
+      <span class="project-img-label">${p.name.split(' ').slice(0,2).join(' ')}</span>
+    </div>
+    <div class="project-name">${p.name}</div>
+    <div class="project-location">${p.location}</div>
+    <div class="project-services">${svcTags}</div>
+  </div>`;
 }
-
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', function(e) {
-    e.preventDefault();
-    navigateTo(this.dataset.page);
+function renderGrid(gridId,projects){
+  const el=document.getElementById(gridId);
+  if(!el)return;
+  if(projects.length===0){el.style.background='none';el.innerHTML='<div style="padding:3rem;color:var(--text-muted);font-size:13px;">No projects match this filter.</div>';}
+  else{el.style.background='var(--border)';el.innerHTML=projects.map(projectCardHTML).join('');}
+}
+function filterProjects(tag,scope){
+  const gridId=scope==='home'?'home-work-grid':scope==='sound'?'sound-work-grid':scope==='lighting'?'lighting-work-grid':'video-work-grid';
+  const filterId=scope==='home'?'home-filters':scope==='sound'?'sound-filters':scope==='lighting'?'lighting-filters':'video-filters';
+  const scopeFilter=scope==='sound'?p=>p.services.includes('s'):scope==='lighting'?p=>p.services.includes('l'):scope==='video'?p=>p.services.includes('v'):()=>true;
+  const filtered=tag==='all'?PROJECTS.filter(scopeFilter):PROJECTS.filter(p=>p.tags.includes(tag)&&scopeFilter(p));
+  renderGrid(gridId,filtered);
+  document.querySelectorAll(`#${filterId} .filter-btn`).forEach(b=>{
+    b.className='filter-btn';
+    if(b.textContent.toLowerCase().replace(' ','')===tag||(b.textContent==='All'&&tag==='all'))b.className='filter-btn active';
   });
-});
-
-// ── Mobile Nav Toggle ──
-document.getElementById('navToggle').addEventListener('click', function() {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-
-// ── Project Filter ──
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    this.classList.add('active');
-
-    const filter = this.dataset.filter;
-    document.querySelectorAll('.project-card').forEach(card => {
-      if (filter === 'all' || card.dataset.cat === filter) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  });
-});
-
-// ── Scroll Fade for Hero Elements ──
-window.addEventListener('scroll', function() {
-  const scrollY = window.scrollY;
-  const indicator = document.querySelector('.scroll-indicator');
-  if (indicator) {
-    indicator.style.opacity = Math.max(0, 1 - scrollY / 200);
-  }
-});
+}
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  window.scrollTo(0,0);
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  const map={sound:'sound',lighting:'lighting',video:'video'};
+  if(map[name])document.querySelectorAll('.nav-link.'+map[name]).forEach(l=>l.classList.add('active'));
+}
+function scrollToContact(){showPage('home');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),50);}
+filterProjects('all','home');
+filterProjects('all','sound');
+filterProjects('all','lighting');
+filterProjects('all','video');
 </script>
-
 </body>
 </html>

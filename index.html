@@ -185,7 +185,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
           <a onclick="closeDropdown()">Contact</a>
           <a onclick="closeDropdown()">Field Notes</a>
           <a onclick="closeDropdown()">Spotlight</a>
-          <a onclick="closeDropdown()">Projects</a>
+          <a onclick="closeDropdown()">Showcase</a>
         </div>
       </div>
     </div>
@@ -200,7 +200,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <a onclick="closeMobileMenu()">Contact</a>
     <a onclick="closeMobileMenu()">Field Notes</a>
     <a onclick="closeMobileMenu()">Spotlight</a>
-    <a onclick="closeMobileMenu()">Projects</a>
+    <a onclick="closeMobileMenu()">Showcase</a>
   </div>
 </nav>
 
@@ -316,7 +316,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 
   <section class="section" id="work-section">
     <div class="section-inner">
-      <p class="section-label">Featured Work</p>
+      <p class="section-label">Showcase</p>
       <div class="work-filters" id="home-filters">
         <button class="filter-btn active" onclick="filterProjects('all','home')">All</button>
         <button class="filter-btn" onclick="filterProjects('audio','home')">Audio</button>
@@ -410,18 +410,6 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       </div>
     </div>
   </section>
-  <section class="section">
-    <div class="section-inner">
-      <p class="section-label">Sound Club Work</p>
-      <div class="work-filters" id="sound-filters">
-        <button class="filter-btn active" onclick="filterProjects('all','sound')">All</button>
-        <button class="filter-btn" onclick="filterProjects('audio','sound')">Audio</button>
-        <button class="filter-btn" onclick="filterProjects('install','sound')">Install</button>
-        <button class="filter-btn" onclick="filterProjects('live','sound')">Live Events</button>
-      </div>
-      <div class="work-grid" id="sound-work-grid"></div>
-    </div>
-  </section>
   <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
     <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
       <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
@@ -475,18 +463,6 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
           <p style="font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.65)">Placeholder bio. Add the Lighting Club founder's story here.</p>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="section">
-    <div class="section-inner">
-      <p class="section-label">Lighting Club Work</p>
-      <div class="work-filters" id="lighting-filters">
-        <button class="filter-btn active" onclick="filterProjects('all','lighting')">All</button>
-        <button class="filter-btn" onclick="filterProjects('lighting','lighting')">Lighting</button>
-        <button class="filter-btn" onclick="filterProjects('install','lighting')">Install</button>
-        <button class="filter-btn" onclick="filterProjects('live','lighting')">Live Events</button>
-      </div>
-      <div class="work-grid" id="lighting-work-grid"></div>
     </div>
   </section>
   <section style="position:relative;overflow:hidden;min-height:500px;display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 2rem;border-bottom:1px solid var(--border)">
@@ -566,18 +542,6 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       </div>
     </div>
   </section>
-  <section class="section">
-    <div class="section-inner">
-      <p class="section-label">Video Club Work</p>
-      <div class="work-filters" id="video-filters">
-        <button class="filter-btn active" onclick="filterProjects('all','video')">All</button>
-        <button class="filter-btn" onclick="filterProjects('video','video')">Video</button>
-        <button class="filter-btn" onclick="filterProjects('broadcast','video')">Broadcast</button>
-        <button class="filter-btn" onclick="filterProjects('live','video')">Live Events</button>
-      </div>
-      <div class="work-grid" id="video-work-grid"></div>
-    </div>
-  </section>
   <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
     <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
       <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
@@ -617,8 +581,8 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:4rem">Not another production company.<br>Not another social media page.<br>Not another job board.<br>We're building a collective.</h2>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)">
         <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Projects</div>
-          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Real work. Real people. Real stories.</p>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Showcase</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Real work. Real people. Real stories. Submitted by the community.</p>
         </div>
         <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
           <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Conversations</div>
@@ -772,9 +736,6 @@ function showPage(name){
 }
 function scrollToContact(){showPage('home');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),50);}
 filterProjects('all','home');
-filterProjects('all','sound');
-filterProjects('all','lighting');
-filterProjects('all','video');
 </script>
 </body>
 </html>

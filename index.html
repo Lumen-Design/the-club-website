@@ -158,6 +158,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <span class="nav-link sound" onclick="showPage('sound')">Sound Club</span>
       <span class="nav-link lighting" onclick="showPage('lighting')">Lighting Club</span>
       <span class="nav-link video" onclick="showPage('video')">Video Club</span>
+      <span class="nav-link collective" onclick="showPage('collective')">The Collective</span>
       <span class="nav-link" onclick="scrollToContact()">Contact</span>
     </div>
   </div>
@@ -545,6 +546,162 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   </footer>
 </div>
 
+<!-- THE COLLECTIVE -->
+<div id="page-collective" class="page">
+
+  <!-- Hero -->
+  <section style="min-height:calc(100vh - 60px);display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 2rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg)">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 15% 85%,rgba(0,102,255,0.08) 0%,transparent 50%),radial-gradient(ellipse at 85% 15%,rgba(168,255,0,0.06) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(255,0,136,0.05) 0%,transparent 50%)"></div>
+    <div style="max-width:1400px;margin:0 auto;width:100%;position:relative;z-index:1">
+      <h1 class="hero-title">THE<br>COLLECTIVE</h1>
+      <div style="margin-top:3rem">
+        <p class="hero-tagline">Independent Specialists.<br>Shared Standards. One Team.</p>
+        <p style="font-size:13px;color:var(--text-muted);max-width:480px;line-height:1.7;margin-top:2rem">The Club exists to connect the people who create experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why We Exist -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">Why We Exist</p>
+      <h2 style="font-size:clamp(28px,4vw,56px);font-weight:800;line-height:1.1;letter-spacing:-0.03em;margin-bottom:3rem;max-width:1100px">The best opportunities in this industry don't come from resumes. They come from relationships.</h2>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.8;max-width:700px">The best projects happen when talented people find each other, trust each other, and build something together. The Club exists to make those connections easier.</p>
+    </div>
+  </section>
+
+  <!-- What We're Building -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">What We're Building</p>
+      <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:4rem">Not another production company.<br>Not another social media page.<br>Not another job board.<br>We're building a collective.</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)">
+        <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Projects</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Real work. Real people. Real stories.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Conversations</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Podcasts. Interviews. Lessons learned.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Community</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Connections. Friendships. Collaboration.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Opportunity</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Projects. Partnerships. Growth.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Clubs -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">The Clubs</p>
+      <div style="display:flex;flex-direction:column;gap:1px;background:var(--border)">
+        <div style="background:var(--panel-a);padding:2.5rem;border-left:6px solid var(--sound);display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background 0.2s;gap:2rem;flex-wrap:wrap" onclick="showPage('sound')" onmouseover="this.style.background='var(--panel-b)'" onmouseout="this.style.background='var(--panel-a)'">
+          <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;color:var(--sound)">Sound Club</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Audio engineers. System techs. Mixers. RF specialists. Designers.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border-left:6px solid var(--light);display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background 0.2s;gap:2rem;flex-wrap:wrap" onclick="showPage('lighting')" onmouseover="this.style.background='var(--panel-b)'" onmouseout="this.style.background='var(--panel-a)'">
+          <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;color:var(--light)">Lighting Club</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Lighting designers. Programmers. Visual designers. Creative technologists. Installers.</p>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border-left:6px solid var(--video);display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background 0.2s;gap:2rem;flex-wrap:wrap" onclick="showPage('video')" onmouseover="this.style.background='var(--panel-b)'" onmouseout="this.style.background='var(--panel-a)'">
+          <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.02em;text-transform:uppercase;color:var(--video)">Video Club</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Directors. Switchers. Broadcast teams. Camera operators. Content creators.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Next Generation -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">The Next Generation</p>
+      <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;margin-bottom:2rem">Knowledge shouldn't retire.</h2>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.8;max-width:700px">One thing missing from our industry is connection between generations. People retire with decades of experience. Young professionals enter with endless questions. The Club exists to bring both groups to the same table. To preserve knowledge. To share stories. To build the future together.</p>
+    </div>
+  </section>
+
+  <!-- Stories Worth Sharing -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">Stories Worth Sharing</p>
+      <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.5rem">Behind every great project is a story.</h2>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.8;max-width:600px;margin-bottom:3rem">We're building a platform to share them.</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+        <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Podcast</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">The Club Podcast</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">Conversations with the people behind the productions.</p>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted)">Coming Soon</span>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Articles</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">Field Notes</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">Lessons, insights, and perspectives from the field.</p>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted)">Coming Soon</span>
+        </div>
+        <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Member Stories</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">Spotlight</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">Profiles of the people who make this industry great.</p>
+          <span style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted)">Coming Soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meet The Collective -->
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label">Meet The Collective</p>
+      <div class="reps-grid">
+        <div class="rep-card">
+          <img src="images/Sound.JPEG" alt="Sound Club Rep" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-bottom:1.5rem">
+          <div class="rep-club" style="color:var(--sound)">Sound Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Audio Director</div>
+        </div>
+        <div class="rep-card">
+          <img src="images/Lights.PNG" alt="Lighting Club Rep" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-bottom:1.5rem">
+          <div class="rep-club" style="color:var(--light)">Lighting Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Creative Director</div>
+        </div>
+        <div class="rep-card">
+          <img src="images/Video.jpg" alt="Video Club Rep" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-bottom:1.5rem">
+          <div class="rep-club" style="color:var(--video)">Video Club</div>
+          <div class="rep-name">— —</div>
+          <div class="rep-role">Founder · Video Director</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section style="padding:8rem 2rem;border-bottom:1px solid var(--border);text-align:center">
+    <div style="max-width:800px;margin:0 auto">
+      <h2 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-0.03em;line-height:0.95;margin-bottom:2rem">There's a seat at the table.</h2>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.8;margin-bottom:3rem">Whether you're a freelancer, business owner, designer, engineer, programmer, technician, creative, or simply someone who loves this industry — you're welcome here.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="#" style="display:inline-block;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;background:var(--white);color:var(--bg);border-radius:2px;transition:opacity 0.2s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Join The Newsletter</a>
+        <a href="#" style="display:inline-block;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:2px;transition:all 0.2s" onclick="showPage('home');return false;">Explore The Clubs</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+      <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
+      <span style="font-size:13px;color:var(--white)">The Collective</span>
+    </div>
+  </footer>
+</div>
+
 <script>
 const PROJECTS=[
   {id:1,name:"Summit Conference 2024",location:"Austin, TX",tags:["audio","lighting","video","live"],services:["s","l","v"],bg:"#0A0E1A"},
@@ -591,7 +748,7 @@ function showPage(name){
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo(0,0);
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
-  const map={sound:'sound',lighting:'lighting',video:'video'};
+  const map={sound:'sound',lighting:'lighting',video:'video',collective:'collective'};
   if(map[name])document.querySelectorAll('.nav-link.'+map[name]).forEach(l=>l.classList.add('active'));
 }
 function scrollToContact(){showPage('home');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),50);}

@@ -30,6 +30,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.92);
 .nav-dropdown.open{display:block}
 .nav-dropdown a{display:block;font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);padding:8px 0;transition:color 0.2s;cursor:pointer}
 .nav-dropdown a:hover{color:var(--white)}
+.nav-hamburger{display:none;font-size:24px;color:var(--white);cursor:pointer;padding:4px}
+.mobile-menu{display:none;position:absolute;top:60px;left:0;right:0;background:#0A0A0A;border-bottom:1px solid #1A1A1A;z-index:99}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:1rem 2rem;font-size:13px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#666666;cursor:pointer;transition:color 0.2s}
+.mobile-menu a:hover{color:var(--white)}
+.mobile-menu a.sound:hover,.mobile-menu a.sound:active{color:var(--sound)}
+.mobile-menu a.lighting:hover,.mobile-menu a.lighting:active{color:var(--light)}
+.mobile-menu a.video:hover,.mobile-menu a.video:active{color:var(--video)}
+.mobile-menu-divider{border:none;border-top:1px solid #1A1A1A;margin:0 2rem}
 .corner-sym{position:relative;width:20px;height:20px}
 .corner-sym .b{position:absolute;width:8px;height:8px;border-style:solid;border-color:transparent}
 .corner-sym .b-tl{top:0;left:0;border-top-width:2px;border-left-width:2px;border-top-color:var(--white);border-left-color:var(--white)}
@@ -148,6 +157,10 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 .footer-inner{flex-direction:column}
 .nav-links{gap:1rem}
 }
+@media(max-width:768px){
+.nav-links{display:none!important}
+.nav-hamburger{display:block}
+}
 </style>
 </head>
 <body>
@@ -176,6 +189,18 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
         </div>
       </div>
     </div>
+    <span class="nav-hamburger" onclick="toggleMobileMenu()">☰</span>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a onclick="mobileNav('collective')">The Collective</a>
+    <a class="sound" onclick="mobileNav('sound')">Sound Club</a>
+    <a class="lighting" onclick="mobileNav('lighting')">Lighting Club</a>
+    <a class="video" onclick="mobileNav('video')">Video Club</a>
+    <hr class="mobile-menu-divider">
+    <a onclick="closeMobileMenu()">Contact</a>
+    <a onclick="closeMobileMenu()">Field Notes</a>
+    <a onclick="closeMobileMenu()">Spotlight</a>
+    <a onclick="closeMobileMenu()">Projects</a>
   </div>
 </nav>
 
@@ -731,6 +756,9 @@ function filterProjects(tag,scope){
     if(b.textContent.toLowerCase().replace(' ','')===tag||(b.textContent==='All'&&tag==='all'))b.className='filter-btn active';
   });
 }
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function closeMobileMenu(){document.getElementById('mobileMenu').classList.remove('open');}
+function mobileNav(page){closeMobileMenu();showPage(page);}
 function toggleDropdown(e){e.stopPropagation();document.getElementById('navDropdown').classList.toggle('open');}
 function closeDropdown(){document.getElementById('navDropdown').classList.remove('open');}
 document.addEventListener('click',function(e){if(!e.target.closest('.nav-more'))closeDropdown();});

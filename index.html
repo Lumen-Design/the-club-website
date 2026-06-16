@@ -23,6 +23,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,5,5,0.92);
 .nav-link.sound:hover,.nav-link.sound.active{color:var(--sound)}
 .nav-link.lighting:hover,.nav-link.lighting.active{color:var(--light)}
 .nav-link.video:hover,.nav-link.video.active{color:var(--video)}
+.nav-more{position:relative}
+.nav-more-btn{font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);cursor:pointer;transition:color 0.2s;display:flex;align-items:center;gap:4px}
+.nav-more-btn:hover{color:var(--white)}
+.nav-dropdown{display:none;position:absolute;top:60px;right:0;background:#0A0A0A;border:1px solid #1A1A1A;padding:1rem;min-width:180px;z-index:200}
+.nav-dropdown.open{display:block}
+.nav-dropdown a{display:block;font-size:12px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted);padding:8px 0;transition:color 0.2s;cursor:pointer}
+.nav-dropdown a:hover{color:var(--white)}
 .corner-sym{position:relative;width:20px;height:20px}
 .corner-sym .b{position:absolute;width:8px;height:8px;border-style:solid;border-color:transparent}
 .corner-sym .b-tl{top:0;left:0;border-top-width:2px;border-left-width:2px;border-top-color:var(--white);border-left-color:var(--white)}
@@ -155,11 +162,19 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <span class="nav-wordmark">The Club</span>
     </div>
     <div class="nav-links">
+      <span class="nav-link collective" onclick="showPage('collective')">The Collective</span>
       <span class="nav-link sound" onclick="showPage('sound')">Sound Club</span>
       <span class="nav-link lighting" onclick="showPage('lighting')">Lighting Club</span>
       <span class="nav-link video" onclick="showPage('video')">Video Club</span>
-      <span class="nav-link collective" onclick="showPage('collective')">The Collective</span>
-      <span class="nav-link" onclick="scrollToContact()">Contact</span>
+      <div class="nav-more">
+        <span class="nav-more-btn" onclick="toggleDropdown(event)">More ▾</span>
+        <div class="nav-dropdown" id="navDropdown">
+          <a onclick="closeDropdown()">Contact</a>
+          <a onclick="closeDropdown()">Field Notes</a>
+          <a onclick="closeDropdown()">Spotlight</a>
+          <a onclick="closeDropdown()">Projects</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
@@ -635,48 +650,21 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
         <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
           <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Podcast</div>
-          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">The Club Podcast</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">The Field Notes Podcast</div>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">Conversations with the people behind the productions.</p>
           <span style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted)">Coming Soon</span>
         </div>
         <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
           <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Articles</div>
-          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">Field Notes</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">Spotlight</div>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">Lessons, insights, and perspectives from the field.</p>
           <span style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted)">Coming Soon</span>
         </div>
         <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
           <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Member Stories</div>
-          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">Spotlight</div>
+          <div style="font-size:18px;font-weight:700;margin-bottom:1rem">Member Stories</div>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">Profiles of the people who make this industry great.</p>
           <span style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border);border-radius:2px;color:var(--text-muted)">Coming Soon</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Meet The Collective -->
-  <section class="section">
-    <div class="section-inner">
-      <p class="section-label">Meet The Collective</p>
-      <div class="reps-grid">
-        <div class="rep-card">
-          <img src="images/Sound.JPEG" alt="Sound Club Rep" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-bottom:1.5rem">
-          <div class="rep-club" style="color:var(--sound)">Sound Club</div>
-          <div class="rep-name">— —</div>
-          <div class="rep-role">Founder · Audio Director</div>
-        </div>
-        <div class="rep-card">
-          <img src="images/Lights.PNG" alt="Lighting Club Rep" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-bottom:1.5rem">
-          <div class="rep-club" style="color:var(--light)">Lighting Club</div>
-          <div class="rep-name">— —</div>
-          <div class="rep-role">Founder · Creative Director</div>
-        </div>
-        <div class="rep-card">
-          <img src="images/Video.jpg" alt="Video Club Rep" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;display:block;margin-bottom:1.5rem">
-          <div class="rep-club" style="color:var(--video)">Video Club</div>
-          <div class="rep-name">— —</div>
-          <div class="rep-role">Founder · Video Director</div>
         </div>
       </div>
     </div>
@@ -688,7 +676,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <h2 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-0.03em;line-height:0.95;margin-bottom:2rem">There's a seat at the table.</h2>
       <p style="font-size:16px;color:var(--text-muted);line-height:1.8;margin-bottom:3rem">Whether you're a freelancer, business owner, designer, engineer, programmer, technician, creative, or simply someone who loves this industry — you're welcome here.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
-        <a href="#" style="display:inline-block;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;background:var(--white);color:var(--bg);border-radius:2px;transition:opacity 0.2s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Join The Newsletter</a>
+        <a href="#" style="display:inline-block;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;background:var(--white);color:var(--bg);border-radius:2px;transition:opacity 0.2s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Join Field Notes</a>
         <a href="#" style="display:inline-block;font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:14px 32px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:2px;transition:all 0.2s" onclick="showPage('home');return false;">Explore The Clubs</a>
       </div>
     </div>
@@ -743,6 +731,9 @@ function filterProjects(tag,scope){
     if(b.textContent.toLowerCase().replace(' ','')===tag||(b.textContent==='All'&&tag==='all'))b.className='filter-btn active';
   });
 }
+function toggleDropdown(e){e.stopPropagation();document.getElementById('navDropdown').classList.toggle('open');}
+function closeDropdown(){document.getElementById('navDropdown').classList.remove('open');}
+document.addEventListener('click',function(e){if(!e.target.closest('.nav-more'))closeDropdown();});
 function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');

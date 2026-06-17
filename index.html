@@ -714,6 +714,13 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <div class="section-inner">
       <p class="section-label" style="color:var(--sound)">Reports</p>
       <div style="display:flex;flex-wrap:wrap;gap:1px;background:var(--border)">
+        <div class="gear-tile" onclick="openGearModal('modal-gear-003')">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">June 7–14, 2026</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:0.5rem">NO. 003</div>
+          <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem">Quiet Pre-InfoComm Week</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">DaVinci Resolve 21.0 goes final. ETC Eos v3.3.8 is a critical patch — update now. grandMA3 v2.4 adds phasers-in-Recipes. The calm before InfoComm 2026.</p>
+          <span style="font-size:12px;color:var(--text-muted);transition:color 0.2s">Read Report →</span>
+        </div>
         <div class="gear-tile" onclick="openGearModal('modal-gear-002')">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">May 31 – June 7, 2026</div>
           <div style="font-size:11px;color:var(--text-muted);margin-bottom:0.5rem">NO. 002</div>
@@ -721,11 +728,11 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
           <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">ETC Eos v3.3.7 pulled — critical patch required now. Blackmagic ships ATEM 4 M/E Constellation IP and HyperDeck ISO 100G. Green Hippo Estuary brings native grandMA3 integration. Teradek Bolt Mobile kills the 6-RX ceiling.</p>
           <span style="font-size:12px;color:var(--text-muted);transition:color 0.2s">Read Report →</span>
         </div>
-        <div class="gear-tile" onclick="openGearModal('modal-gear-001')">
-          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">June 7–14, 2026</div>
+        <div class="gear-tile" onclick="openGearModal('modal-gear-001-may')">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">May 2–11, 2026</div>
           <div style="font-size:11px;color:var(--text-muted);margin-bottom:0.5rem">NO. 001</div>
-          <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem">Quiet Pre-InfoComm Week</div>
-          <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">DaVinci Resolve 21.0 goes final. ETC Eos v3.3.8 is a critical patch — update now. grandMA3 v2.4 adds phasers-in-Recipes. The calm before InfoComm 2026.</p>
+          <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem">Clear-Com Goes Cellular</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">FreeSpeak Cell begins shipping — LTE/5G intercom with no RF coordination required. Resolume 7.26.1 adds MCP server interface. Apple macOS 26.5 adds auto-power-on for racked Macs. Quiet post-NAB week.</p>
           <span style="font-size:12px;color:var(--text-muted);transition:color 0.2s">Read Report →</span>
         </div>
       </div>
@@ -744,7 +751,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   <div style="background:#0A0A0A;border:1px solid #1A1A1A;width:90vw;max-width:860px;max-height:85vh;overflow-y:auto;border-radius:2px;padding:3rem;position:relative">
     <button onclick="closeGearModal()" style="position:absolute;top:1.5rem;right:1.5rem;font-size:20px;color:#666;cursor:pointer;background:none;border:none">×</button>
 
-    <div id="modal-gear-001" class="modal-report" style="display:none">
+    <div id="modal-gear-003" class="modal-report" style="display:none">
       <!-- Header -->
       <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin-bottom:0.75rem">Gear Intel · The Club</div>
       <div style="height:2px;background:#0066FF;margin-bottom:1.5rem"></div>
@@ -1144,6 +1151,204 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
         <span style="font-size:12px;color:var(--text-muted)">Gear Intel · The Club · Confirmed announcements only.</span>
         <span style="font-size:12px;color:var(--text-muted)">Next sweep: Sunday, June 14, 2026</span>
+      </div>
+    </div>
+
+    <div id="modal-gear-001-may" class="modal-report" style="display:none">
+      <!-- Header -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin-bottom:0.75rem">Gear Intel · The Club</div>
+      <div style="height:2px;background:#0066FF;margin-bottom:1.5rem"></div>
+      <div style="margin-bottom:1rem">
+        <span style="font-size:12px;color:var(--text-muted)">Coverage: May 2–11, 2026  ·  Edge items: April 30 – May 1</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-dim);font-style:italic;line-height:1.7;margin-bottom:2.5rem"><strong style="color:var(--text-muted)">How to read this report.</strong> Findings organized by brand. Before → After callouts isolate the specific capability delta so you can decide quickly whether it matters to a current rig. Edge-of-window items are dated 1–2 days outside the window but still actively promoted. Rumors excluded — confirmed announcements only.</p>
+
+      <!-- Executive Summary -->
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;margin-bottom:1.5rem">Clear-Com Goes Cellular</h2>
+      <p class="modal-body-text">Post-NAB quiet week. Clear-Com ships FreeSpeak Cell, Resolume adds an MCP server interface, and Apple sneaks auto-power-on into macOS 26.5.</p>
+
+      <div style="margin:2rem 0">
+        <div class="modal-bullet">Clear-Com FreeSpeak Cell begins shipping in US/UK/EU — first mainstream LTE/5G intercom, integrated with Eclipse HX matrices.</div>
+        <div class="modal-bullet">Apple macOS 26.5 released May 11 — Mac Studio/mini gain auto-power-on for unattended playout/encode nodes.</div>
+        <div class="modal-bullet">Chauvet Professional COLORado PXL Curve 1 — single-head IP65 sibling to the PXL Curve 12, same DMX language, drop-in for existing rigs.</div>
+        <div class="modal-bullet">Resolume 7.26.1 released May 11 — MCP server interface for Arena/Avenue/Wire plus expanded REST API for show-control automation.</div>
+        <div class="modal-bullet">Elgato Wave XLR Pro shipping — 2-channel XLR interface, 80dB gain per input, Stream Deck-mappable hardware mixes.</div>
+        <div class="modal-bullet">DJI Mic Mini 2 launched globally April 28 — receiver now cross-compatible with Mic 2, Mic 3, and Mic Mini 2 TX. <span class="gear-tag edge">Edge-of-Window</span></div>
+        <div class="modal-bullet">ETC Eos Fixture Library v3.3.6 Build 11 — current production library for v3.3.6 consoles entering festival season.</div>
+        <div class="modal-bullet">Blackmagic Desktop Video 16.0.1 — patches 12G-SDI bug on DeckLink 8K Pro when HDMI mezzanine is absent.</div>
+      </div>
+
+      <!-- Brand-by-Brand -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin:3rem 0 2rem;border-bottom:1px solid var(--border);padding-bottom:1rem">Brand-by-Brand Findings</div>
+
+      <!-- Clear-Com -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Clear-Com — FreeSpeak Cell</div>
+        <p class="modal-body-text">Clear-Com's cellular wireless intercom began shipping in the US, UK, and Europe in May 2026. Dual-SIM beltpacks run over public/private LTE and 5G, with initial integration limited to Eclipse HX matrices. Arcadia integration slated "a few months after release"; Gen-IC cloud support comes later in 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior FreeSpeak II / Edge systems were RF-only (DECT 1.9 GHz, 2.4 GHz, 5 GHz) requiring frequency coordination and on-site RF infrastructure. FreeSpeak Cell adds LTE/5G transport supporting 100+ beltpacks with no RF coordination required.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Eliminates spectrum-coordination headaches for large venues, geographically distributed crews, and remote productions. Pricing not yet public.</p>
+        <p class="modal-source">Source: Clear-Com press · SVG · ProSoundWeb</p>
+      </div>
+
+      <!-- Apple macOS -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Apple — macOS 26.5</div>
+        <p class="modal-body-text">Released May 11, 2026. Production-relevant addition: new auto-power and remote-restart settings for Mac mini, Mac Studio, and iMac. 69 security fixes (9 kernel). No new pro-audio/video framework changes in release notes.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior macOS 26.4 had no toggle for automatic power-on when AC power returns. 26.5 adds it — racked Mac Studio/mini used as playout, streaming, or unattended encode/decode nodes will now self-recover after a power event without manual intervention.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Reduces site-visit risk for unattended Macs in install jobs — church AV, signage, broadcast facility encode nodes.</p>
+        <p class="modal-source">Source: 9to5Mac · Apple macOS 26.5 release notes</p>
+      </div>
+
+      <!-- Apple iOS -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Apple — iOS 26.5 / iPadOS 26.5</div>
+        <p class="modal-body-text">Released May 11, 2026. End-to-end encrypted RCS messages (beta), Maps Suggested Places, 50+ security fixes.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Maintenance/security update only. No new pro audio/video framework changes confirmed. Audio Mix and studio-quality recording on AirPods Pro 2/3/4 unchanged.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Limited direct production impact — primarily a security pass for iPhone/iPad-based field rigs (Blackmagic Camera app, prompter, Frame.io review).</p>
+        <p class="modal-source">Source: MacRumors</p>
+      </div>
+
+      <!-- Chauvet -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Chauvet Professional — COLORado PXL Curve 1</div>
+        <p class="modal-body-text">Single-head sibling to the PXL Curve 12. IP65-rated RGBW beam/wash with 60° pan, 200° tilt, dual linear CW/WW strobe cells (160 SMD LEDs in 8 zones of control), output ~14,000 lux at 5m. Trade press launch May 11, 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior PXL Curve family contained only the Curve 12 (12 controllable 45W RGBW heads per batten). The Curve 1 introduces a single-head version using the same DMX programming language — individual units drop into existing Curve 12 rigs without re-mapping.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Drop-in accent/fill positions for existing PXL Curve 12 rigs. IP65 single-cell for smaller rooms and church installs that want the look without 12-cell battens.</p>
+        <p class="modal-source">Source: PLSN May 2026 · Chauvet product page · digitalavmagazine</p>
+      </div>
+
+      <!-- Resolume -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Resolume — 7.26.1</div>
+        <p class="modal-body-text">Released May 11, 2026 (macOS). Headline 7.26 features refined in this release: MCP server interface for Arena/Avenue/Wire — enabling Claude, OpenAI Codex, Google Antigravity, and similar AI desktop apps to assist composition building — plus expanded REST API.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior 7.25.x had no MCP server interface and a more limited REST API. 7.26.x adds MCP support and lets clients load compositions, open multiple clips, validate file openability, and add multiple columns in a single REST call (prior API was single-clip/single-column per call).</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> First mainstream media-server/VJ tool with a native MCP interface — opens an AI-assisted cueing path. Expanded REST also reduces show-control round trips for OSC/HTTP integrators driving Resolume from external automation.</p>
+        <p class="modal-source">Source: Resolume forum release thread · Resolume downloads</p>
+      </div>
+
+      <!-- Elgato -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Elgato — Wave XLR Pro</div>
+        <p class="modal-body-text">Shipping window opens May 2026. USD $350. 2 independent XLR preamps, 80dB ultra-low-noise gain per input, onboard Wave FX DSP, Clipguard 2.0, VST insert support, and 5 hardware mixes mappable to Stream Deck. Companion Wave Link 3.0 software already available.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Original Wave XLR was single-channel, 75dB gain. Wave XLR Pro: 2 channels, 80dB gain per input, hardware-mappable mixing for solo-op streaming/podcast/scratch-mix workflows.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Drives high-gain dynamic mics (SM7B, RE20, PodMic) without a Cloudlifter. Hardware-mappable mixing for solo-op streaming workflows.</p>
+        <p class="modal-source">Source: Elgato product page · Corsair press</p>
+      </div>
+
+      <!-- DJI -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">DJI Wireless — Mic Mini 2 <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Global launch April 28, 2026. 11g transmitter, 3 voice tone presets (Regular/Bright/Rich), 2-level active noise cancelling, 48kHz/24-bit, automatic limiting, magnetic interchangeable color covers. EU/UK launch; US pending FCC certification. From €33 (single TX) / €59 (basic kit).</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Original Mic Mini had no voice tone presets and fixed cosmetic design. Mic Mini 2 adds 3 EQ presets, faster TX charging, color customization. The Mic 3 mobile USB-C receiver now also accepts Mic 2, Mic 3, Mic Mini, and Mic Mini 2 TX — prior Mic Mini receiver only paired with Mini-family TX.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Cheap B-cam/interview/multi-presenter coverage. Cross-compatibility with Mic 3 mobile RX is the real win — one receiver across kits.</p>
+        <p class="modal-source">Source: CineD · DroneXL</p>
+      </div>
+
+      <!-- Panasonic CCU -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Panasonic — AK-UCU700 CCU Firmware</div>
+        <p class="modal-body-text">Major firmware adds support for high-speed shooting within SMPTE ST 2110 IP environments. May 2026. Specific version number not disclosed.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capability: high-speed (high frame rate) capture transported natively over ST 2110. Previously, ST 2110 connectivity existed but without high-speed shooting mode support.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Live sports/event productions running native ST 2110 fabric no longer need a parallel SDI path for slo-mo cameras.</p>
+        <p class="modal-source">Source: Panasonic press release</p>
+      </div>
+
+      <!-- Panasonic PTZ -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Panasonic — AW-UE5 4K PTZ</div>
+        <p class="modal-body-text">New compact ultra-wide-angle 4K/60p PTZ with NDI|HX support; successor to AW-UE4. Shipping/promotion active in window.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">AW-UE4 maxed at 4K/30p. AW-UE5 doubles temporal limit to 4K/60p; ultra-wide field of view retained.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Doubles temporal resolution on a compact PTZ for huddle rooms, classroom captures, and corporate streaming installs. NDI|HX keeps deployment costs low.</p>
+        <p class="modal-source">Source: Panasonic press release</p>
+      </div>
+
+      <!-- Sony BURANO -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Sony — BURANO Firmware V3.0</div>
+        <p class="modal-body-text">Release window opens May 2026. Adds two new imager scan modes, S700P command compatibility for live remote control, HLG Mild custom mode, and color peaking visibility improvements.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">V3.0 adds FF 5.8K 6:5 (full-frame 2× anamorphic) and S35c 3.8K 16:9 up to 120fps scan modes — prior baseline had no native FF 6:5 anamorphic mode. V3.0 also expands S700P-compatible remote control to include FPS, shutter, and saturation parameters.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Brings BURANO into live multi-camera flow via S700P RCP control panels. Unlocks anamorphic/120p coverage without an external recorder.</p>
+        <p class="modal-source">Source: Sony BURANO firmware roadmap</p>
+      </div>
+
+      <!-- ETC Fixture Library -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">ETC — Eos Fixture Library v3.3.6 Build 11</div>
+        <p class="modal-body-text">Companion library update to Eos v3.3.6. Adds and corrects manufacturer fixture profiles. Posted May 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior library was v3.3.5.5 (January 2026). Build 11 is now the current shipping library on the Fixture Library Hub with incremental profile additions/corrections aligned to Eos v3.3.6.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Programmers patching new fixtures going into festival season need this build to avoid hand-building profiles.</p>
+        <p class="modal-source">Source: ETC Eos software versions page</p>
+      </div>
+
+      <!-- Blackmagic Desktop Video -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Blackmagic Design — Desktop Video 16.0.1</div>
+        <p class="modal-body-text">Released May 5–6, 2026. Maintenance update fixing a 12G-SDI bug on DeckLink 8K Pro when the optional HDMI mezzanine card is not installed.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">16.0 introduced regression behavior in DeckLink 8K Pro without HDMI mezzanine. 16.0.1 restores correct 12G-SDI signal handling in that specific configuration.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> DeckLink 8K Pro is a workhorse ingest/playout I/O for switcher rigs and edit bays. Flagged because it restores a primary I/O capability on a flagship SKU.</p>
+        <p class="modal-source">Source: Newsshooter</p>
+      </div>
+
+      <!-- No Updates -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin:3rem 0 1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem">No Updates This Week</div>
+      <p style="font-size:13px;color:var(--text-dim);line-height:2">Ross Video (Carbonite/Acuity/Ultrix/DashBoard) · FOR-A HANABI · AJA · Decimator Design · openGear ecosystem (Cobalt/Apantac/Lynx Technik/Ensemble Designs/Ross OGX) · Canon (Cinema EOS firmware not yet released) · Fujinon · MA Lighting (still on v2.3.x) · Pathway Connectivity · Chauvet DJ · ETC ColorSource/fos/4/Source Four LED/Response/Sensor3/Echo/Augment3d/Mosaic/Paradigm · Disguise · Green Hippo/Hippotizer · NovaStar · Planar · ProPresenter · Teradek</p>
+
+      <!-- Analyst Notes -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin:3rem 0 1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem">Analyst Notes</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Post-NAB trough.</strong> Quiet post-NAB cycle. May 2-11 is the typical 2–3 week trough after NAB. Most items are either firmware previewed at NAB now shipping, or trade-press re-runs of April reveals. Resolume MCP and Clear-Com FreeSpeak Cell shipping are the rare actually-new datapoints.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">MCP/AI integration.</strong> MCP/AI integration starts hitting media servers. Resolume 7.26's MCP interface is worth tracking — if Disguise, Hippotizer, or ProPresenter follow, AI-assisted show-build moves from novelty to viable workflow tool.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Cellular intercom.</strong> Cellular intercom is real now. FreeSpeak Cell shipping is a structural change for any venue install where RF coordination is the bottleneck. Worth raising with church-AV and conference-room clients.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Apple auto-power-on.</strong> Apple auto-power-on for Mac Studio/mini. Easy to miss in the macOS 26.5 notes but materially useful for any unattended Mac doing playout, signage, or encode duty. Push the update on any installed Mac rack.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">DJI US availability.</strong> DJI Mic Mini 2 US availability. On sale globally except the US (no FCC certification yet). If interview/B-cam audio is a near-term spend, the Mic 3 is the safer US purchase until certification lands.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">InfoComm watch.</strong> Watch for InfoComm 2026 (June 17–19). Planar, NovaStar, and the install-AV brands are saving their next product cycle for InfoComm.</div>
+
+      <div class="action-box">
+        <div class="action-label">Action Items</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">macOS 26.5:</strong> Push macOS 26.5 on any racked Mac Studio or Mac mini doing unattended playout, signage, or encode duty — the auto-power-on setting alone is worth the update.</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">Resolume:</strong> If you run Resolume on any rig, 7.26.1 is a straightforward update. The MCP interface is worth a look even as a future-proofing move.</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">DJI Mic Mini 2:</strong> Hold DJI Mic Mini 2 US purchases until FCC certification lands. Mic 3 is the safe buy in the meantime.</div>
+      </div>
+
+      <!-- Footer -->
+      <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <span style="font-size:12px;color:var(--text-muted)">Gear Intel · The Club · Confirmed announcements only.</span>
+        <span style="font-size:12px;color:var(--text-muted)">Next sweep: Sunday, May 17, 2026</span>
       </div>
     </div>
 

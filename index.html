@@ -1430,10 +1430,18 @@ document.getElementById('signup-form').addEventListener('submit', async function
   btn.textContent = '...';
   btn.disabled = true;
   try {
-    const res = await fetch('https://api.beehiiv.com/v2/publications/pub_4c9b7f8e-0c8ad47b/subscriptions', {
+    const res = await fetch('https://api.beehiiv.com/v2/publications/pub_e41592fa-2f38-42e9-971b-8bc4f120ccee/subscriptions', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, reactivate_existing: true, send_welcome_email: true })
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        reactivate_existing: true,
+        send_welcome_email: true,
+        utm_source: 'website',
+        utm_medium: 'organic'
+      })
     });
     if (res.ok) {
       msg.textContent = "You're in. Check your inbox to confirm.";

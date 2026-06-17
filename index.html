@@ -714,6 +714,13 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <div class="section-inner">
       <p class="section-label" style="color:var(--sound)">Reports</p>
       <div style="display:flex;flex-wrap:wrap;gap:1px;background:var(--border)">
+        <div class="gear-tile" onclick="openGearModal('modal-gear-002')">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">May 31 – June 7, 2026</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:0.5rem">NO. 002</div>
+          <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem">Blackmagic Goes All-In on ST 2110</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">ETC Eos v3.3.7 pulled — critical patch required now. Blackmagic ships ATEM 4 M/E Constellation IP and HyperDeck ISO 100G. Green Hippo Estuary brings native grandMA3 integration. Teradek Bolt Mobile kills the 6-RX ceiling.</p>
+          <span style="font-size:12px;color:var(--text-muted);transition:color 0.2s">Read Report →</span>
+        </div>
         <div class="gear-tile" onclick="openGearModal('modal-gear-001')">
           <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">June 7–14, 2026</div>
           <div style="font-size:11px;color:var(--text-muted);margin-bottom:0.5rem">NO. 001</div>
@@ -868,6 +875,278 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
         <span style="font-size:12px;color:var(--text-muted)">Next sweep: Sunday, June 21, 2026</span>
       </div>
     </div>
+
+    <div id="modal-gear-002" class="modal-report" style="display:none">
+      <!-- Header -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin-bottom:0.75rem">Gear Intel · The Club</div>
+      <div style="height:2px;background:#0066FF;margin-bottom:1.5rem"></div>
+      <div style="margin-bottom:1rem">
+        <span style="font-size:12px;color:var(--text-muted)">Coverage: May 31 – June 7, 2026  ·  Edge items back to May 29</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-dim);font-style:italic;line-height:1.7;margin-bottom:2.5rem"><strong style="color:var(--text-muted)">How to read this report.</strong> Each section is one manufacturer. Items inside the 7-day window are listed first; edge-of-window items dated 1–2 days outside are tagged. Before → After callouts show exactly what changed. Rumors excluded — confirmed announcements only.</p>
+
+      <!-- Executive Summary -->
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;margin-bottom:1.5rem">Blackmagic Goes All-In on ST 2110</h2>
+      <p class="modal-body-text">ETC pulls Eos v3.3.7 after a critical firmware bug, Blackmagic ships three ST 2110 products, Green Hippo launches a media server with native grandMA3 integration, and Teradek turns iPads into wireless monitors.</p>
+
+      <div style="margin:2rem 0">
+        <div class="modal-bullet">ETC Eos v3.3.8 emergency patch (June 3) — critical advisory. v3.3.7 pulled after firmware bug can wipe license/output counts on Element 2, Ion Xe, Ion Xe 20, Ion Xe RPU, Gio @5, Apex Processor, Eos Expansion Processor, and Eos RVI. Upgrade immediately. <span class="gear-tag critical">Critical</span></div>
+        <div class="modal-bullet">Blackmagic Camera 10.2 firmware (June 4) adds Phase Detect Autofocus and Cloud Streaming to PYXIS 6K — now viable for multi-cam live work.</div>
+        <div class="modal-bullet">Blackmagic ATEM 4 M/E Constellation IP and HyperDeck ISO 100G ship this month — native SMPTE ST 2110 in mid-budget territory.</div>
+        <div class="modal-bullet">Canon RC-IP300 PTZ controller ships June 2026 at US$2,499 — 200-camera IP control in a compact 3.5" touchscreen.</div>
+        <div class="modal-bullet">Green Hippo Estuary Series (MC1/MC2/MC4) — native grandMA3 integration. Lighting and media ops share a control language for the first time. <span class="gear-tag edge">Edge-of-Window</span></div>
+        <div class="modal-bullet">Planar 21by9 5K LCD Series — 81/94/105" ultra-wide quantum-dot Mini-LED, 2,500 nits, ships Q3. <span class="gear-tag edge">Edge-of-Window</span></div>
+        <div class="modal-bullet">Teradek Bolt Mobile revealed at Cine Gear — turns iPads into Bolt receivers; broadcast mode removes the 6-RX ceiling.</div>
+        <div class="modal-bullet">InfoComm 2026 is June 17–19. Expect a second wave of announcements next week.</div>
+      </div>
+
+      <!-- Brand-by-Brand -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin:3rem 0 2rem;border-bottom:1px solid var(--border);padding-bottom:1rem">Brand-by-Brand Findings</div>
+
+      <!-- Blackmagic Camera 10.2 -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Blackmagic Design — Camera 10.2 Firmware</div>
+        <p class="modal-body-text">Released June 2–4, 2026. Adds Phase Detect Autofocus (PDAF) to PYXIS 6K — continuous AF, face-detect AF, object-detect AF, selectable transition speed — plus Blackmagic Cloud Streaming routing that pushes a live camera stream directly to studio or multiple cloud destinations.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">PYXIS 6K previously contrast-detect AF only with no built-in streaming; v10.2 now offers full PDAF (continuous + face + object) and direct Blackmagic Cloud Streaming with shortcut-key mode toggling.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> PYXIS 6K becomes viable for live multi-cam and event work — reliable AF plus direct-to-cloud streaming eliminates a dedicated encoder in the rack.</p>
+        <p class="modal-source">Source: CineD · Newsshooter</p>
+      </div>
+
+      <!-- Blackmagic ATEM IP -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Blackmagic Design — ATEM 4 M/E Constellation IP</div>
+        <p class="modal-body-text">2RU IP switcher with 32 native SMPTE ST 2110 inputs and 28 outputs over 100G fiber, 16 Advanced Keyers, 4 multiviewers, 2 SuperSource. US$7,995. Shipping June 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capability: first ATEM with native 100G ST 2110 I/O at sub-$8K, opening ST 2110 production switching to mid-budget live trucks and install systems.</div>
+        </div>
+        <p class="modal-source">Source: SVG</p>
+      </div>
+
+      <!-- Blackmagic HyperDeck -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Blackmagic Design — HyperDeck ISO 100G</div>
+        <p class="modal-body-text">ST 2110 IP recorder, 8 video channels, US$4,995. ATEM Monitoring Rack Panel (combined monitoring converter + control panel, US$995) also shipping June 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior HyperDeck ISO models recorded SDI ISOs; HyperDeck ISO 100G now records 8 ST 2110 channels natively over a single 100G uplink.</div>
+        </div>
+        <p class="modal-source">Source: NewscastStudio</p>
+      </div>
+
+      <!-- ETC -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">ETC — Eos Family v3.3.8 <span class="gear-tag critical">Critical</span> <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">v3.3.7 (released May 27) was pulled after ETC discovered a critical firmware bug in the "Intelligent Power Board IMX RT" module installer that can cause affected consoles to lose their license/output count. v3.3.8 removes the problematic installer while keeping all v3.3.7 improvements. Affected hardware: Element 2, Ion Xe, Ion Xe 20, Ion Xe RPU, Gio @5, Apex Processor, Eos Expansion Processor, and Eos RVI.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">v3.3.7 installer could brick licensed output channel counts on affected consoles; v3.3.8 ships the same feature/fix improvements without the IMX RT installer.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Show-stopper risk for any tour or install running affected hardware. If v3.3.7 is already installed, do NOT apply the IMX RT firmware update — roll forward to v3.3.8 immediately. If you haven't installed v3.3.7, skip it entirely.</p>
+        <p class="modal-source">Source: ETC Community release notes · v3.3.7 withdrawal notice</p>
+      </div>
+
+      <!-- MA Lighting -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">MA Lighting — grandMA3 v2.4 <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Released May 27, 2026. Major feature update across Phasers, Presets, blind editing, MVR import, and remote networking. MA is running v2.4 webinars June 17–19 in multiple languages.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Phasers and Recipes were separate workflows; v2.4 integrates Phasers into the Recipes system with a SMART-style graphical editor, nSHOT repetition count, direction controls, and a new Shape pool.</div>
+        </div>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Presets were tightly bound to specific fixture types; v2.4 introduces Universal Presets that work across all fixture types with selective/global/universal scope.</div>
+        </div>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">MVR imports were monolithic; v2.4 routes MVR import through a new Partial Show Read (PSR) menu for selective element import.</div>
+        </div>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">New capability — Phone Tethering lets the console access online fixture shares via mobile data when on-site networking is locked down, plus a non-destructive Preview interface.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Phaser Recipes reduce dynamic-effect programming time, Universal Presets eliminate redundant preset libraries, Phone Tethering is a real-world win for touring techs at locked-down venues.</p>
+        <p class="modal-source">Source: MA Lighting release notes · TPi</p>
+      </div>
+
+      <!-- Green Hippo -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Green Hippo / Hippotizer — Estuary Series <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Three-model media server family (MC1 1RU compact, MC2 2RU touring, MC4 arena flagship) built on tvONE CALICO video processing. Announced May 27, 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior Hippotizer MX series had no equivalent for 256 layers or 64,000×64,000 px canvases; Estuary delivers up to 256 layers, 10-bit/HDR, four canvases up to 64,000×64,000 px, single-frame latency.</div>
+        </div>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior Hippotizer platforms required third-party bridges for grandMA3; Estuary ships with native grandMA3 integration alongside DMX, sACN, HippoNet, Companion, and a REST API.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> First Green Hippo platform where lighting and media ops can share a control language. Major for touring and megachurch rigs running lighting and screens off one MA console.</p>
+        <p class="modal-source">Source: ACT Entertainment · Live Design</p>
+      </div>
+
+      <!-- Planar 21by9 -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Planar — 21by9 Series 5K LCD Displays</div>
+        <p class="modal-body-text">81", 94", 105" at 5120×2160, 120Hz, quantum-dot Mini-LED, 2,500 nits peak, 1,000,000:1 HDR contrast, 115% DCI-P3, up to 2,560 local dimming zones, VESA DisplayHDR 1400. Ships Q3 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capability: first Planar ultra-wide LCD at 5K/120Hz/2,500 nits with up to 2,560 local dimming zones at 81–105" sizes.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> One-piece solution for corporate, command-center, and lobby/worship-foyer installs that previously required multi-monitor blends.</p>
+        <p class="modal-source">Source: Planar press · rAVe</p>
+      </div>
+
+      <!-- Planar Mantis -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Planar — Mantis Series Rental LED</div>
+        <p class="modal-body-text">1.5/1.9/2.6mm pitches, up to 1,500 nits, 7,680Hz refresh, 4,000:1 contrast, magnesium-alloy tool-less rigging. Orders open June 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capability: tool-less one-handed rigging at 1,500 nits / 7,680Hz in a rental tile.</div>
+        </div>
+        <p class="modal-source">Source: Planar press</p>
+      </div>
+
+      <!-- Sony -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Sony — SRG-A40 / SRG-A12 Ver. 4.0 Firmware</div>
+        <p class="modal-body-text">Adds Ball Sports (Basketball) Mode, optical image stabilization, real-time overlays, stronger facial recognition, external JPEG face import, temporary face deactivation, and face-data protection. Rolling out for InfoComm.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">V3 supported AI auto-framing and facial recognition with internal registration only; V4 adds optical image stabilization, external JPEG-based face registration, and a Ball Sports tracking preset.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> A40/A12 become usable for sports venues and houses of worship where rosters change frequently — pre-load faces from a roster JPEG instead of manual on-camera registration.</p>
+        <p class="modal-source">Source: Broadfield · Sony at InfoComm 2026</p>
+      </div>
+
+      <!-- Canon -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Canon — RC-IP300 PTZ Controller</div>
+        <p class="modal-body-text">US$2,499. 3.5" touchscreen, controls up to 200 cameras over IP. Ships June 2026. Compact form factor building on the RC-IP1000.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">RC-IP1000 was the flagship 200-camera controller at a larger footprint; RC-IP300 preserves 200-camera IP control in a portable 3.5" touchscreen at US$2,499.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Sub-$2.5K full-feature IP PTZ controller — useful for satellite control positions, A/B rigs, and house-of-worship volunteer ops where the flagship is overkill.</p>
+        <p class="modal-source">Source: Canon press · B&H</p>
+      </div>
+
+      <!-- Teradek -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Teradek — Bolt Mobile</div>
+        <p class="modal-body-text">Revealed at Cine Gear 2026 (June 5). USB-C wireless receiver dongle for iPad, compatible with Bolt 4K and Bolt 6 transmitters. Bolt Mobile 750 (~$1,000, 750ft) and Bolt Mobile 1500 (~$1,500, 1,500ft). Ships August 2026.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Bolt receivers previously required dedicated RX hardware + monitor + power and were capped at 6 receivers per TX; Bolt Mobile 1500 broadcast mode with Bolt Max TX allows unlimited simultaneous receivers.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Any iPad on set becomes a wireless monitoring station for ~$1K. Removes antenna build, SDI loom, and dedicated monitor-RX overhead. Broadcast mode blanket-feeds an entire crew.</p>
+        <p class="modal-source">Source: Newsshooter at Cine Gear 2026</p>
+      </div>
+
+      <!-- DJI -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">DJI Wireless — Mic Mini 2S</div>
+        <p class="modal-body-text">Officially confirmed for summer 2026. Mic 3 features migrating down: internal recording on transmitter, 4-TX-to-1-RX pairing. Note: DJI has indicated the 2S will skip the US market initially.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Mic Mini (original) supported 2 TX per RX with no internal recording; Mic Mini 2S supports 4 TX per RX with onboard storage for solo recording.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Doubles channel count for ENG and event 2-talent setups in the cheaper Mini ecosystem.</p>
+        <p class="modal-source">Source: Notebookcheck · DroneXL</p>
+      </div>
+
+      <!-- Decimator -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Decimator Design — MD-HX UCP 3.0.5</div>
+        <p class="modal-body-text">Latest USB Control Panel release. Builds on 3.0.4: VESA HDMI input, additional 2K formats, built-in test pattern and tone generators, advanced on-screen overlays (audio meters, graticules, UMD/custom text, format status).</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">MD-HX previously handled broadcast formats only; UCP 3.0.4 added VESA/2K computer-source support plus embedded test-and-measurement tools; 3.0.5 is the latest incremental release on top of that.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Turns a cheap cross-converter into a one-box signal-utility/QC tool for mixed broadcast and computer source installs.</p>
+        <p class="modal-source">Source: Decimator downloads · Videoguys</p>
+      </div>
+
+      <!-- Cobalt Digital -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Cobalt Digital / openGear — Two New Cards <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Announced May 25, 2026. 9925-FSx Frame Sync — 1-path, field-upgradable to 4 paths, optional 64-channel Dante. 9981-LUTx Color Processor — entry-level, field-upgradable 1 to 4 paths, optional SCALER/BBC LUT/COLOR/4K/LOGO/ANC add-ons.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior Cobalt frame-sync and LUT cards shipped as fixed multi-path SKUs; new cards ship as 1-path entry SKUs that scale to 4 paths via field license.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Lowers entry CAPEX for small flypacks and Pro AV racks. Jobs that grow can be license-upgraded in the field. Part of Cobalt's IPMX/ST 2110 push for Pro AV.</p>
+        <p class="modal-source">Source: Cobalt press · SVG</p>
+      </div>
+
+      <!-- Disguise -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Disguise — Designer Previews & Mapping Matter</div>
+        <p class="modal-body-text">"Looks" — new track type exposing layer parameters via API endpoints. "Compositions" — transportable content packages with export/import/delete API endpoints. Mapping Matter v-next debuts at InfoComm: adds extended projector library, LED tile integration, projection mirrors, multi-layer comparison setups.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capabilities: API-addressable parameter exposure (Looks), portable content bundles (Compositions), and LED tile + projection-mirror modeling inside Mapping Matter.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Reduces site-survey and pre-viz time for projection-heavy installs and church/touring rigs running mixed LED + projection.</p>
+        <p class="modal-source">Source: TPi · Installation International</p>
+      </div>
+
+      <!-- Elgato -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Elgato Stream Deck — "Everywhere" Strategy</div>
+        <p class="modal-body-text">Four-part announcement at Computex, June 2, 2026. Stream Deck Module (embeddable 6/15/32-key hardware, aluminum chassis). Virtual Stream Deck / VSD (software-only control pads on any screen). Scissor Keys variant of Stream Deck MK.2. NVIDIA G-Assist AI integration (edge-of-window).</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capability: software-only VSD and embeddable Module hardware, expanding beyond standalone Stream Deck units for the first time.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> VSD lets a tech run a Stream Deck layout on a FOH laptop without dedicated hardware (good for backup and B-rigs). Module opens a path for AV integrators to embed Stream Deck control in custom racks and lecterns.</p>
+        <p class="modal-source">Source: Corsair / Elgato press</p>
+      </div>
+
+      <!-- ProPresenter -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">ProPresenter — 21.4 Beta</div>
+        <p class="modal-body-text">Released June 5, 2026. Primarily stability/bug-fix but includes improved output performance when rendering 4K media across multiple screens. Fixes: helper-process update hang, web-fill trigger hang, props/Table View crash, audio-bin crash, line-height and drop-shadow rendering, font rendering, copy/paste of prop objects.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Prior baseline not verified — new capability: faster 4K multi-screen rendering pipeline for setups running 4K backgrounds across IMAG + stage + lobby outputs.</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Unglamorous but real — the kind of fix that prevents Sunday-morning frame drops on multi-output 4K rigs. Qualify on a backup machine before rolling to production.</p>
+        <p class="modal-source">Source: Renewed Vision downloads</p>
+      </div>
+
+      <!-- No Updates -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin:3rem 0 1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem">No Updates This Week</div>
+      <p style="font-size:13px;color:var(--text-dim);line-height:2">Panasonic PTZ (AW-UE/UR, AW-RP) · AJA (NAB items) · FOR-A HANABI · Fujinon · Chauvet DJ · Pathway Connectivity · NovaStar · Resolume · Ross OGX cards · AJA openGear / Apantac / Lynx Technik / Blackmagic openGear / Ensemble Designs · Eos Mosaic/Augment3d/Paradigm/ColorSource/Response/Echo/Source Four LED · MA dot2</p>
+
+      <!-- Analyst Notes -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin:3rem 0 1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem">Analyst Notes</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">ETC priority.</strong> Treat ETC Eos v3.3.7 → v3.3.8 as the top priority this week. Audit version numbers before any show call. The risk is losing licensed channel count — affected units need to go back to ETC for re-licensing.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Blackmagic momentum.</strong> Blackmagic is the most active brand this window. Camera 10.2 PYXIS PDAF + Cloud Streaming plus three ST 2110 hardware ships repositions Blackmagic as a credible mid-budget ST 2110 vendor — relevant for any install bid that's been pricing Grass Valley or Sony as the only option.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Pre-InfoComm wave.</strong> Three high-impact pre-InfoComm announcements: Green Hippo Estuary, Planar 21by9 5K, and Cobalt's two new openGear cards. Expect a much heavier wave June 13–19.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">MA grandMA3 v2.4.</strong> A real productivity update. Phaser Recipes + Universal Presets together should cut programming time on dynamic-effect-heavy shows. Worth a half-day eval on a non-show console.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Teradek economics.</strong> Teradek Bolt Mobile changes wireless monitoring economics for crew-heavy shoots — useful talking point for clients asking why monitor counts cost what they cost.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Mac Studio hold.</strong> Hold any Mac Studio refresh POs. Apple roadmap points to October 2026 for M5 generation. WWDC June 8 may add OS context but won't move hardware.</div>
+
+      <div class="action-box">
+        <div class="action-label">Action Items</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">ETC Eos:</strong> If any Eos console in inventory is on v3.3.7 — do NOT apply the IMX RT firmware update. Roll forward to v3.3.8 immediately.</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">Blackmagic ATEM:</strong> ATEM 4 M/E Constellation IP at $7,995 is worth a spec comparison on any pending install bid currently priced on legacy SDI routing.</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">MA grandMA3:</strong> Schedule a half-day eval before InfoComm if you're running a dynamic-effect-heavy rig.</div>
+      </div>
+
+      <!-- Footer -->
+      <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <span style="font-size:12px;color:var(--text-muted)">Gear Intel · The Club · Confirmed announcements only.</span>
+        <span style="font-size:12px;color:var(--text-muted)">Next sweep: Sunday, June 14, 2026</span>
+      </div>
+    </div>
+
   </div>
 </div>
 

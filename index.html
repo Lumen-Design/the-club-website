@@ -1433,7 +1433,8 @@ document.getElementById('signup-form').addEventListener('submit', async function
     const res = await fetch('https://api.beehiiv.com/v2/publications/pub_e41592fa-2f38-42e9-971b-8bc4f120ccee/subscriptions', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer eenUsXcelFMGq2cE1n7uBRiAdbpQ07HwvbxrRKTqUfcqla0mMrUzvVxTmPdrgeVt'
       },
       body: JSON.stringify({
         email: email,

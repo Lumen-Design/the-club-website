@@ -684,13 +684,17 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <div style="max-width:800px;margin:0 auto">
       <h2 style="font-size:clamp(36px,6vw,72px);font-weight:900;letter-spacing:-0.03em;line-height:0.95;margin-bottom:2rem">Find your people.</h2>
       <p style="font-size:16px;color:var(--text-muted);line-height:1.8;margin-bottom:3rem">Whether you're a freelancer, business owner, designer, engineer, programmer, technician, creative, or simply someone who loves this industry — you're welcome here.</p>
-      <div style="position:relative;border:1px solid #1A1A1A;max-width:480px;margin:2rem auto 0;">
+      <form id="signup-form" style="max-width:480px;margin:2rem auto 0;position:relative;">
         <span style="position:absolute;top:-1px;left:-1px;width:16px;height:16px;border-top:2px solid #FFFFFF;border-left:2px solid #FFFFFF;"></span>
         <span style="position:absolute;top:-1px;right:-1px;width:16px;height:16px;border-top:2px solid #0066FF;border-right:2px solid #0066FF;"></span>
         <span style="position:absolute;bottom:-1px;left:-1px;width:16px;height:16px;border-bottom:2px solid #FF0088;border-left:2px solid #FF0088;"></span>
         <span style="position:absolute;bottom:-1px;right:-1px;width:16px;height:16px;border-bottom:2px solid #A8FF00;border-right:2px solid #A8FF00;"></span>
-        <iframe src="https://embeds.beehiiv.com/0c8ad47b-6e44-44f8-9c42-e3e7905deaa8" data-test-id="beehiiv-embed" width="100%" height="320" frameborder="0" scrolling="no" style="border:none;background:transparent;display:block;"></iframe>
-      </div>
+        <div style="display:flex;gap:0;border:1px solid #1A1A1A;">
+          <input type="email" id="signup-email" placeholder="Enter your email" required style="flex:1;background:#0A0A0A;border:none;padding:14px 16px;font-family:Inter,sans-serif;font-size:14px;color:#FFFFFF;outline:none;"/>
+          <button type="submit" style="background:#FFFFFF;color:#050505;border:none;padding:14px 24px;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;white-space:nowrap;">Join The Club</button>
+        </div>
+        <p id="signup-msg" style="font-size:12px;color:#666666;margin-top:0.75rem;text-align:center;display:none;"></p>
+      </form>
     </div>
   </section>
 
@@ -1418,6 +1422,37 @@ filterProjects('all','home');
 function openGearModal(id){document.getElementById('gear-modal-overlay').style.display='flex';document.querySelectorAll('#gear-modal-overlay .modal-report').forEach(m=>m.style.display='none');document.getElementById(id).style.display='block';document.body.style.overflow='hidden';}
 function closeGearModal(){document.getElementById('gear-modal-overlay').style.display='none';document.body.style.overflow='';}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGearModal();});
+document.getElementById('signup-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('signup-email').value;
+  const msg = document.getElementById('signup-msg');
+  const btn = this.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('https://api.beehiiv.com/v2/publications/pub_4c9b7f8e-0c8ad47b/subscriptions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, reactivate_existing: true, send_welcome_email: true })
+    });
+    if (res.ok) {
+      msg.textContent = "You're in. Check your inbox to confirm.";
+      msg.style.color = '#A8FF00';
+      msg.style.display = 'block';
+      document.getElementById('signup-email').value = '';
+    } else {
+      msg.textContent = 'Something went wrong. Try again.';
+      msg.style.color = '#FF0088';
+      msg.style.display = 'block';
+    }
+  } catch(err) {
+    msg.textContent = 'Something went wrong. Try again.';
+    msg.style.color = '#FF0088';
+    msg.style.display = 'block';
+  }
+  btn.textContent = 'Join The Club';
+  btn.disabled = false;
+});
 </script>
 </body>
 </html>

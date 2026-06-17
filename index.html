@@ -157,6 +157,23 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 .footer-inner{flex-direction:column}
 .nav-links{gap:1rem}
 }
+.gear-tile{background:var(--panel-a);padding:2rem;cursor:pointer;transition:background 0.2s;border-bottom:1px solid var(--border)}
+.gear-tile:hover{background:var(--panel-b)}
+.gear-tag{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:2px 8px;border-radius:1px;display:inline-block;margin-left:6px}
+.gear-tag.edge{background:rgba(255,0,136,0.12);color:#FF0088}
+.gear-tag.critical{background:rgba(204,34,0,0.12);color:#CC2200}
+.before-after{background:#0F0F00;border:1px solid #3A3000;padding:1rem 1.25rem;border-radius:2px;margin:1rem 0}
+.before-after-label{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#886600;margin-bottom:0.4rem}
+.before-after-text{font-size:13px;color:#BBAA44;line-height:1.7}
+.modal-brand{border-left:2px solid #1A1A1A;padding-left:1.25rem;margin:2rem 0}
+.modal-brand-name{font-size:17px;font-weight:700;color:#FFFFFF;margin-bottom:0.5rem}
+.modal-body-text{font-size:14px;color:#666666;line-height:1.8;margin-bottom:1rem}
+.modal-why{font-size:13px;color:#555555;margin-bottom:0.5rem}
+.modal-why strong{color:#AAAAAA}
+.modal-source{font-size:11px;color:#444444;letter-spacing:0.05em}
+.action-box{background:rgba(0,102,255,0.06);border-top:2px solid #0066FF;padding:1.25rem;margin-top:1.5rem}
+.action-label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0066FF;margin-bottom:0.75rem}
+.modal-bullet{border-left:2px solid #1A1A1A;padding-left:1rem;margin-bottom:0.6rem;font-size:13px;color:#666;line-height:1.6}
 @media(max-width:768px){
 .nav-links{display:none!important}
 .nav-hamburger{display:block}
@@ -184,6 +201,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
         <div class="nav-dropdown" id="navDropdown">
           <a onclick="closeDropdown()">Contact</a>
           <a onclick="closeDropdown()">Field Notes</a>
+          <a onclick="closeDropdown();showPage('gear-intel')">Gear Intel</a>
           <a onclick="closeDropdown()">Spotlight</a>
           <a onclick="closeDropdown()">Showcase</a>
         </div>
@@ -199,6 +217,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <hr class="mobile-menu-divider">
     <a onclick="closeMobileMenu()">Contact</a>
     <a onclick="closeMobileMenu()">Field Notes</a>
+    <a onclick="mobileNav('gear-intel')">Gear Intel</a>
     <a onclick="closeMobileMenu()">Spotlight</a>
     <a onclick="closeMobileMenu()">Showcase</a>
   </div>
@@ -679,6 +698,179 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   </footer>
 </div>
 
+<!-- GEAR INTEL -->
+<div id="page-gear-intel" class="page">
+  <section class="disc-hero" style="background:var(--bg)">
+    <div class="disc-accent-bar" style="background:var(--sound)"></div>
+    <div class="disc-hero-inner">
+      <span class="disc-hero-back" onclick="showPage('home')">← THE CLUB</span>
+      <div class="disc-hero-kicker" style="color:var(--text-muted)">Gear Intel · The Club</div>
+      <h1 class="disc-hero-title">Gear<br><span style="color:var(--sound)">Intel</span></h1>
+      <p class="disc-hero-desc">Confirmed-only sweep of manufacturer announcements, firmware updates, and trade reporting. Published weekly.</p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-inner">
+      <p class="section-label" style="color:var(--sound)">Reports</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+        <div class="gear-tile" onclick="openGearModal('modal-gear-001')">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--sound);margin-bottom:0.75rem">June 7–14, 2026</div>
+          <div style="font-size:11px;color:var(--text-muted);margin-bottom:0.5rem">NO. 001</div>
+          <div style="font-size:20px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.75rem">Quiet Pre-InfoComm Week</div>
+          <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:1.5rem">DaVinci Resolve 21.0 goes final. ETC Eos v3.3.8 is a critical patch — update now. grandMA3 v2.4 adds phasers-in-Recipes. The calm before InfoComm 2026.</p>
+          <span style="font-size:12px;color:var(--text-muted);transition:color 0.2s">Read Report →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+      <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
+      <span style="font-size:13px;color:var(--sound)">Gear Intel</span>
+    </div>
+  </footer>
+</div>
+
+<!-- GEAR MODAL OVERLAY -->
+<div id="gear-modal-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:200;display:none;align-items:center;justify-content:center" onclick="if(event.target===this)closeGearModal()">
+  <div style="background:#0A0A0A;border:1px solid #1A1A1A;width:90vw;max-width:860px;max-height:85vh;overflow-y:auto;border-radius:2px;padding:3rem;position:relative">
+    <button onclick="closeGearModal()" style="position:absolute;top:1.5rem;right:1.5rem;font-size:20px;color:#666;cursor:pointer;background:none;border:none">×</button>
+
+    <div id="modal-gear-001" class="modal-report" style="display:none">
+      <!-- Header -->
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin-bottom:0.75rem">Gear Intel · The Club</div>
+      <div style="height:2px;background:#0066FF;margin-bottom:1.5rem"></div>
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:1rem">
+        <span style="font-size:12px;color:var(--text-muted)">Coverage: June 7–14, 2026 · Edge items back to June 2</span>
+        <span style="font-size:12px;color:var(--text-muted)">Prepared for Kristopher Potter · Lumen Design</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-dim);font-style:italic;line-height:1.7;margin-bottom:2.5rem"><strong style="color:var(--text-muted)">How to read this report.</strong> Gear Intel is a confirmed-only sweep. Every item listed has a verifiable source — official release notes, manufacturer announcements, or first-party documentation. Rumors, leaks, and unverified social media posts are excluded by rule. "Edge-of-window" items fell just outside the coverage dates but are included for completeness.</p>
+
+      <!-- Executive Summary -->
+      <h2 style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;margin-bottom:1.5rem">Quiet Pre-InfoComm Week</h2>
+      <p class="modal-body-text">InfoComm 2026 opens June 14 in Orlando. Most manufacturers are holding announcements for the show floor, making this a lighter-than-usual sweep. The items that did land are significant: a major DAW release, a critical lighting console patch, and a marquee control surface update.</p>
+
+      <div style="margin:2rem 0">
+        <div class="modal-bullet">Blackmagic DaVinci Resolve 21.0 — final release. Photo page, deep AI toolset, wide RAW/codec support. <span class="gear-tag edge">Edge-of-Window</span></div>
+        <div class="modal-bullet">Apple AirPods — new beta firmware (9A5292e, June 9) with user-adjustable Custom EQ ahead of iOS 27.</div>
+        <div class="modal-bullet">ETC Eos v3.3.8 — critical patch. Removes problematic power-board firmware from v3.3.7. Update immediately. <span class="gear-tag critical">Critical</span></div>
+        <div class="modal-bullet">MA Lighting grandMA3 v2.4 — phasers-in-Recipes, universal Presets, non-destructive Preview mode. <span class="gear-tag edge">Edge-of-Window</span></div>
+        <div class="modal-bullet">Planar 21by9 5K Mini-LED displays & Disguise Mapping Matter — InfoComm previews. <span class="gear-tag edge">Edge-of-Window</span></div>
+        <div class="modal-bullet">No qualifying updates for Panasonic, Sony, Canon, AJA, Decimator, Teradek, DJI, Ross Video, FOR-A, Clear-Com, NovaStar, ProPresenter, Chauvet, Pathway, Green Hippo, Resolume, Elgato Stream Deck.</div>
+      </div>
+
+      <!-- Brand-by-Brand -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0066FF;margin:3rem 0 2rem;border-bottom:1px solid var(--border);padding-bottom:1rem">Brand-by-Brand Findings</div>
+
+      <!-- Blackmagic Resolve -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Blackmagic Design — DaVinci Resolve 21.0 <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Final release of DaVinci Resolve 21.0 (June 2). Major version jump introduces a dedicated Photo page for stills editing, IntelliTrack AI-powered object tracking across Color/Fusion/Fairlight, expanded AI tools for dialogue separation, music removal, and voice isolation, plus broad new RAW and codec support including Sony VENICE 2 MPC, Nikon N-Log, and BRAW updates.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">DaVinci Resolve 20.x → DaVinci Resolve 21.0 (final)</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Resolve is the most-used post tool in our collective. The Photo page and AI tracking features directly impact video club workflows. Free version gets most features.</p>
+        <p class="modal-source">Source: Blackmagic Design official release, June 2, 2026</p>
+      </div>
+
+      <!-- Blackmagic ATEM -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Blackmagic Design — ATEM 4 M/E Constellation IP</div>
+        <p class="modal-body-text">Announced at the same event as Resolve 21. New flagship live production switcher built around SMPTE ST 2110 IP infrastructure. Supports 80 IP inputs, 48 outputs, SuperSource, media players, and a fully redesigned control surface. Represents Blackmagic's first full-IP production switcher.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">ATEM Constellation HD/4K (SDI-based) → ATEM 4 M/E Constellation IP (ST 2110)</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Major move for broadcast and IMAG workflows. IP-native switching at a Blackmagic price point could shift how Video Club approaches large-format production.</p>
+        <p class="modal-source">Source: Blackmagic Design official announcement, June 2, 2026</p>
+      </div>
+
+      <!-- Apple AirPods -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Apple — AirPods Beta Firmware</div>
+        <p class="modal-body-text">New developer beta firmware (9A5292e, June 9) for AirPods Pro 2 and AirPods 4 ANC. Introduces user-adjustable Custom EQ with bass, mid, and treble sliders — the first time Apple has exposed parametric-style EQ on AirPods. Tied to iOS 27 / macOS Tahoe beta cycle.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Fixed EQ curve → User-adjustable 3-band Custom EQ (beta)</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Relevant for sound club members monitoring on personal devices. EQ control was a long-requested feature. Beta only — expect changes before public release.</p>
+        <p class="modal-source">Source: Apple Developer beta release notes, June 9, 2026</p>
+      </div>
+
+      <!-- ETC Eos -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">ETC — Eos v3.3.8 <span class="gear-tag critical">Critical</span> <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Critical maintenance patch released June 5. Rolls back a power-board firmware change introduced in v3.3.7 that caused intermittent boot failures on Gio @5, Ion Xe, and Element 2 consoles. ETC is recommending immediate update for all users on v3.3.7. Also fixes a Net3 Show Control gateway issue and a syntax error in blind channel editing.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Eos v3.3.7 (problematic power-board FW) → Eos v3.3.8 (reverted, stable)</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> If you updated to v3.3.7, update again immediately. Boot failures on show day are unacceptable. This is the highest-priority item in this sweep.</p>
+        <p class="modal-source">Source: ETC official release notes, June 5, 2026</p>
+      </div>
+
+      <!-- MA Lighting -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">MA Lighting — grandMA3 v2.4 <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Released June 3. Major feature update: phasers can now be stored inside Recipes, universal Presets work across fixture types, and a new non-destructive Preview mode lets programmers test changes without affecting live output. Also adds enhanced network diagnostics and improved GDTF fixture profile handling.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">grandMA3 v2.3.x → grandMA3 v2.4 (phasers-in-Recipes, universal Presets, Preview)</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Phasers-in-Recipes is the most-requested feature in MA's user community. Universal Presets simplify festival-style programming. Preview mode is a game-changer for live busking environments.</p>
+        <p class="modal-source">Source: MA Lighting official changelog, June 3, 2026</p>
+      </div>
+
+      <!-- Planar -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Planar — 21by9 Series 5K LCD <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Pre-InfoComm announcement (June 10). New ultra-wide 5K (5120×2160) Mini-LED displays in 105" and 125" sizes, purpose-built for corporate boardrooms, command centers, and high-end AV installations. 21:9 native aspect ratio eliminates letterboxing for widescreen content. Direct-view Mini-LED backlight with 2,000+ local dimming zones.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Planar 16:9 LCD lineup → New 21:9 5K Mini-LED series (105" / 125")</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Permanent install projects increasingly request ultra-wide formats. This fills a gap between LED walls and traditional flat panels for high-end AV.</p>
+        <p class="modal-source">Source: Planar press release, June 10, 2026</p>
+      </div>
+
+      <!-- Disguise -->
+      <div class="modal-brand">
+        <div class="modal-brand-name">Disguise — Mapping Matter Update <span class="gear-tag edge">Edge-of-Window</span></div>
+        <p class="modal-body-text">Pre-InfoComm preview (June 11). Mapping Matter is Disguise's projection mapping calibration and alignment tool. Update adds real-time mesh deformation, improved auto-alignment for multi-projector arrays, and deeper integration with the Disguise designer workflow. Aimed at large-scale immersive installations and touring projection rigs.</p>
+        <div class="before-after">
+          <div class="before-after-label">Before → After</div>
+          <div class="before-after-text">Mapping Matter v1.x → Updated Mapping Matter (real-time mesh, improved auto-align)</div>
+        </div>
+        <p class="modal-why"><strong>Why it matters:</strong> Projection mapping workflows in the lighting and video clubs benefit directly. Faster alignment means faster load-ins.</p>
+        <p class="modal-source">Source: Disguise pre-InfoComm briefing, June 11, 2026</p>
+      </div>
+
+      <!-- No Updates -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin:3rem 0 1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem">No Updates This Week</div>
+      <p style="font-size:13px;color:var(--text-dim);line-height:2">Panasonic · Sony · Canon · AJA · Decimator · Teradek · DJI · Ross Video · FOR-A · Clear-Com · NovaStar · ProPresenter · Chauvet · Pathway · Green Hippo · Resolume · Elgato Stream Deck</p>
+
+      <!-- Analyst Notes -->
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin:3rem 0 1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem">Analyst Notes</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Timing context.</strong> InfoComm 2026 opens June 14. Expect a significant volume increase in next week's sweep as manufacturers release show-floor announcements. This week's quiet tone is typical pre-show holding pattern.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Verification catches.</strong> Several social media posts claiming new Allen & Heath firmware were traced to a beta leak, not an official release. Excluded per confirmed-only methodology.</div>
+      <div class="modal-bullet"><strong style="color:var(--white)">Excluded by rule.</strong> Two crowdfunded products (a USB audio interface and a DMX node) announced shipping dates. Excluded because manufacturer track record on delivery dates is unverified.</div>
+
+      <div class="action-box">
+        <div class="action-label">Action Items for You</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">ETC Eos:</strong> If any consoles in your inventory are on v3.3.7, update to v3.3.8 before your next show. Do not skip this.</div>
+        <div class="modal-bullet"><strong style="color:var(--white)">DaVinci Resolve:</strong> Download Resolve 21.0 and test against your current project templates. The new IntelliTrack AI features are worth evaluating for your video workflows.</div>
+      </div>
+
+      <!-- Footer -->
+      <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem">
+        <span style="font-size:12px;color:var(--text-muted)">Gear Intel · The Club · Confirmed announcements only.</span>
+        <span style="font-size:12px;color:var(--text-muted)">Next sweep: Sunday, June 21, 2026</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
 const PROJECTS=[
   {id:1,name:"Summit Conference 2024",location:"Austin, TX",tags:["audio","lighting","video","live"],services:["s","l","v"],bg:"#0A0E1A"},
@@ -731,11 +923,14 @@ function showPage(name){
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo(0,0);
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
-  const map={sound:'sound',lighting:'lighting',video:'video',collective:'collective'};
+  const map={sound:'sound',lighting:'lighting',video:'video',collective:'collective','gear-intel':'gear-intel'};
   if(map[name])document.querySelectorAll('.nav-link.'+map[name]).forEach(l=>l.classList.add('active'));
 }
 function scrollToContact(){showPage('home');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),50);}
 filterProjects('all','home');
+function openGearModal(id){document.getElementById('gear-modal-overlay').style.display='flex';document.querySelectorAll('#gear-modal-overlay .modal-report').forEach(m=>m.style.display='none');document.getElementById(id).style.display='block';document.body.style.overflow='hidden';}
+function closeGearModal(){document.getElementById('gear-modal-overlay').style.display='none';document.body.style.overflow='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGearModal();});
 </script>
 </body>
 </html>

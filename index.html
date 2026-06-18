@@ -1652,9 +1652,10 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
         <div style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Be the First to Know</div>
         <div style="font-size:clamp(22px,2.5vw,30px);font-weight:600;letter-spacing:-0.02em;color:var(--white);margin-bottom:1rem;line-height:1.2">The first episode is closer than you think.</div>
         <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:2.5rem">Drop your email and we'll let you know when we go live.</p>
-        <form id="podcast-notify-form" style="display:flex;gap:0;max-width:480px;margin:0 auto">
-          <input type="email" id="podcast-email" placeholder="Enter your email" required class="showcase-input" style="margin-bottom:0;border-radius:2px 0 0 2px;flex:1">
-          <button type="submit" style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:10px 24px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:0 2px 2px 0;cursor:pointer;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='var(--white)';this.style.color='#050505'" onmouseout="this.style.background='transparent';this.style.color='var(--white)'">Notify Me</button>
+        <form id="podcast-notify-form" style="max-width:480px;margin:0 auto">
+          <input type="text" id="podcast-name" placeholder="Your Name" required class="showcase-input" style="margin-bottom:0;border-radius:2px 2px 0 0">
+          <input type="email" id="podcast-email" placeholder="Enter your email" required class="showcase-input" style="margin-bottom:0;border-radius:0">
+          <button type="submit" style="width:100%;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:14px 24px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:0 0 2px 2px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='var(--white)';this.style.color='#050505'" onmouseout="this.style.background='transparent';this.style.color='var(--white)'">Notify Me</button>
         </form>
         <div id="podcast-notify-msg" style="display:none;font-size:13px;margin-top:1.5rem"></div>
       </div>
@@ -1776,6 +1777,7 @@ document.getElementById('signup-form').addEventListener('submit', async function
 });
 document.getElementById('podcast-notify-form').addEventListener('submit', async function(e) {
   e.preventDefault();
+  const name = document.getElementById('podcast-name').value;
   const email = document.getElementById('podcast-email').value;
   const msg = document.getElementById('podcast-notify-msg');
   const btn = this.querySelector('button');
@@ -1785,12 +1787,13 @@ document.getElementById('podcast-notify-form').addEventListener('submit', async 
     const res = await fetch('/api/subscribe', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email, name })
     });
     if (res.ok) {
       msg.textContent = "You're on the list. See you in the movies.";
       msg.style.color = 'var(--text-muted)';
       msg.style.display = 'block';
+      document.getElementById('podcast-name').value = '';
       document.getElementById('podcast-email').value = '';
     } else {
       msg.textContent = 'Something went wrong. Try again.';

@@ -190,6 +190,10 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 .gear-tile{flex:0 0 100%}
 .spotlight-grid{grid-template-columns:1fr}
 .showcase-grid{grid-template-columns:1fr}
+.podcast-about-grid{grid-template-columns:1fr!important;gap:3rem!important}
+}
+@media(max-width:900px){
+.podcast-about-grid{grid-template-columns:1fr!important;gap:3rem!important}
 }
 </style>
 </head>
@@ -217,6 +221,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
           <a onclick="closeDropdown();showPage('gear-intel')">Gear Intel</a>
           <a onclick="closeDropdown();showPage('spotlight')">Spotlight</a>
           <a onclick="closeDropdown();showPage('showcase')">Showcase</a>
+          <a onclick="closeDropdown();showPage('podcast')">The Podcast</a>
         </div>
       </div>
     </div>
@@ -233,6 +238,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <a onclick="mobileNav('gear-intel')">Gear Intel</a>
     <a onclick="mobileNav('spotlight')">Spotlight</a>
     <a onclick="mobileNav('showcase')">Showcase</a>
+    <a onclick="mobileNav('podcast')">The Podcast</a>
   </div>
 </nav>
 
@@ -1611,6 +1617,65 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   </div>
 </div>
 
+<!-- PODCAST -->
+<div id="page-podcast" class="page">
+  <section class="disc-hero" style="background:radial-gradient(ellipse at 70% 30%, rgba(255,255,255,0.05) 0%, #050505 70%)">
+    <div class="disc-hero-inner">
+      <span class="disc-hero-back" onclick="showPage('home')">← THE CLUB</span>
+      <div class="disc-hero-kicker" style="color:var(--white)">The Club Podcast</div>
+      <h1 class="disc-hero-title">THE<br>PODCAST</h1>
+      <p class="disc-hero-desc">Learn. Connect. Grow.</p>
+      <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-top:2rem">Hosted by The Club Core</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="podcast-about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem">
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem">The Show</div>
+          <div style="font-size:clamp(24px,2.5vw,32px);font-weight:600;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.5rem;line-height:1.2">Knowledge Shouldn't Retire.</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.8">The Club Podcast is where experience meets platform. We sit down with the people who have built careers in live production — sound engineers, lighting designers, video directors, riggers, stagehands, and everyone in between — and we let them talk. Not about us. About them. Their work. Their craft. What they've learned. What the industry needs to hear.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--white);margin-bottom:1.5rem">One Offs</div>
+          <div style="font-size:clamp(24px,2.5vw,32px);font-weight:600;letter-spacing:-0.02em;color:var(--white);margin-bottom:1.5rem;line-height:1.2">In the room where it happens.</div>
+          <p style="font-size:14px;color:var(--text-muted);line-height:1.8">One Offs are short-form interviews captured on location — at shows, venues, and events. No studio. No script. Just a conversation with someone doing the work right now. The goal is the same as always: build their platform, not ours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="border-bottom:none">
+    <div class="section-inner">
+      <div style="background:var(--panel-a);border:1px solid var(--border);padding:4rem;text-align:center;max-width:700px;margin:0 auto">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Be the First to Know</div>
+        <div style="font-size:clamp(22px,2.5vw,30px);font-weight:600;letter-spacing:-0.02em;color:var(--white);margin-bottom:1rem;line-height:1.2">The first episode is closer than you think.</div>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:2.5rem">Drop your email and we'll let you know when we go live.</p>
+        <form id="podcast-notify-form" style="display:flex;gap:0;max-width:480px;margin:0 auto">
+          <input type="email" id="podcast-email" placeholder="Enter your email" required class="showcase-input" style="margin-bottom:0;border-radius:2px 0 0 2px;flex:1">
+          <button type="submit" style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:10px 24px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:0 2px 2px 0;cursor:pointer;transition:all 0.2s;white-space:nowrap" onmouseover="this.style.background='var(--white)';this.style.color='#050505'" onmouseout="this.style.background='transparent';this.style.color='var(--white)'">Notify Me</button>
+        </form>
+        <div id="podcast-notify-msg" style="display:none;font-size:13px;margin-top:1.5rem"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div style="border:1px solid var(--border);padding:5rem 2rem;text-align:center">
+        <div style="font-size:11px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--white);opacity:0.3">Episodes Dropping Soon</div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:3rem 2rem;border-top:1px solid var(--border)">
+    <div style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between">
+      <span class="footer-link" onclick="showPage('home')">← Back to The Club</span>
+      <span style="font-size:13px;color:var(--white)">The Podcast</span>
+    </div>
+  </footer>
+</div>
 
 <script>
 const PROJECTS=[
@@ -1664,19 +1729,19 @@ function showPage(name){
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo(0,0);
   document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
-  const map={sound:'sound',lighting:'lighting',video:'video',collective:'collective','gear-intel':'gear-intel',spotlight:'spotlight',showcase:'showcase'};
+  const map={sound:'sound',lighting:'lighting',video:'video',collective:'collective','gear-intel':'gear-intel',spotlight:'spotlight',showcase:'showcase',podcast:'podcast'};
   if(map[name])document.querySelectorAll('.nav-link.'+map[name]).forEach(l=>l.classList.add('active'));
 }
 function scrollToContact(){showPage('home');setTimeout(()=>document.getElementById('contact').scrollIntoView({behavior:'smooth'}),50);}
 filterProjects('all','home');
 function openGearModal(id){document.getElementById('gear-modal-overlay').style.display='flex';document.querySelectorAll('#gear-modal-overlay .modal-report').forEach(m=>m.style.display='none');document.getElementById(id).style.display='block';document.body.style.overflow='hidden';}
 function closeGearModal(){document.getElementById('gear-modal-overlay').style.display='none';document.body.style.overflow='';}
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeGearModal();closeSpotlightModal();closeShowcaseModal();closeShowcaseSubmit();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeGearModal();closeSpotlightModal();closeShowcaseModal();}});
 function openSpotlightModal(id){document.getElementById('spotlight-modal-overlay').style.display='flex';document.querySelectorAll('#spotlight-modal-overlay .modal-report').forEach(m=>m.style.display='none');document.getElementById(id).style.display='block';document.body.style.overflow='hidden';}
 function closeSpotlightModal(){document.getElementById('spotlight-modal-overlay').style.display='none';document.body.style.overflow='';}
 function openShowcaseModal(id){document.getElementById('showcase-modal-overlay').style.display='flex';document.querySelectorAll('#showcase-modal-overlay .modal-report').forEach(m=>m.style.display='none');document.getElementById(id).style.display='block';document.body.style.overflow='hidden';}
 function closeShowcaseModal(){document.getElementById('showcase-modal-overlay').style.display='none';document.body.style.overflow='';}
-function submitShowcase(e){e.preventDefault();var p=document.getElementById('sc-project').value,n=document.getElementById('sc-name').value,h=document.getElementById('sc-handle').value,d=document.getElementById('sc-disciplines').value,c=document.getElementById('sc-contribution').value,t=document.getElementById('sc-team').value;var body='Project Name: '+p+'\n\nYour Name: '+n+'\n\nInstagram: '+h+'\n\nDisciplines: '+d+'\n\nContribution:\n'+c+'\n\nTeam Members:\n'+t;window.location.href='mailto:fieldnotes@the-club.space?subject='+encodeURIComponent('Showcase Submission: '+p)+'&body='+encodeURIComponent(body);closeShowcaseSubmit();}
+
 document.getElementById('signup-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const email = document.getElementById('signup-email').value;
@@ -1707,6 +1772,37 @@ document.getElementById('signup-form').addEventListener('submit', async function
     msg.style.display = 'block';
   }
   btn.textContent = 'Join The Club';
+  btn.disabled = false;
+});
+document.getElementById('podcast-notify-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('podcast-email').value;
+  const msg = document.getElementById('podcast-notify-msg');
+  const btn = this.querySelector('button');
+  btn.textContent = '...';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email })
+    });
+    if (res.ok) {
+      msg.textContent = "You're on the list. See you in the movies.";
+      msg.style.color = 'var(--text-muted)';
+      msg.style.display = 'block';
+      document.getElementById('podcast-email').value = '';
+    } else {
+      msg.textContent = 'Something went wrong. Try again.';
+      msg.style.color = '#FF0088';
+      msg.style.display = 'block';
+    }
+  } catch(err) {
+    msg.textContent = 'Something went wrong. Try again.';
+    msg.style.color = '#FF0088';
+    msg.style.display = 'block';
+  }
+  btn.textContent = 'Notify Me';
   btn.disabled = false;
 });
 </script>

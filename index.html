@@ -1542,7 +1542,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <h1 class="disc-hero-title">The<br>Showcase</h1>
       <p class="disc-hero-desc">Real work. Real people. Real craft.</p>
       <div style="margin-top:2.5rem">
-        <button onclick="openShowcaseSubmit()" style="font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:14px 32px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:2px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='var(--white)';this.style.color='#050505'" onmouseout="this.style.background='transparent';this.style.color='var(--white)'">Submit Your Work</button>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScY7QKQKqqonWZBMh5TpdV_g1ftxhRU_iiryrixCjA43X9oCA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:14px 32px;background:transparent;color:var(--white);border:1px solid var(--white);border-radius:2px;cursor:pointer;transition:all 0.2s;text-decoration:none" onmouseover="this.style.background='var(--white)';this.style.color='#050505'" onmouseout="this.style.background='transparent';this.style.color='var(--white)'">Submit Your Work</a>
       </div>
     </div>
   </section>
@@ -1611,23 +1611,6 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
   </div>
 </div>
 
-<!-- SHOWCASE SUBMIT MODAL -->
-<div id="showcase-submit-overlay" style="position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:200;display:none;align-items:center;justify-content:center" onclick="if(event.target===this)closeShowcaseSubmit()">
-  <div style="background:#0A0A0A;border:1px solid #1A1A1A;width:90vw;max-width:600px;max-height:85vh;overflow-y:auto;border-radius:2px;padding:3rem;position:relative">
-    <button onclick="closeShowcaseSubmit()" style="position:absolute;top:1.5rem;right:1.5rem;font-size:20px;color:#666;cursor:pointer;background:none;border:none">×</button>
-    <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);margin-bottom:0.75rem">Submit Your Work</div>
-    <p style="font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:2rem">Fill out the form below. The Club Core will follow up with you directly.</p>
-    <form id="showcase-submit-form" onsubmit="submitShowcase(event)">
-      <input type="text" id="sc-project" class="showcase-input" placeholder="Project Name" required>
-      <input type="text" id="sc-name" class="showcase-input" placeholder="Your Name" required>
-      <input type="text" id="sc-handle" class="showcase-input" placeholder="Your Instagram Handle">
-      <input type="text" id="sc-disciplines" class="showcase-input" placeholder="e.g. Lighting, Sound, Video">
-      <textarea id="sc-contribution" class="showcase-input" rows="4" placeholder="Your Contribution" style="resize:vertical"></textarea>
-      <textarea id="sc-team" class="showcase-input" rows="3" placeholder="Names and roles of others involved" style="resize:vertical"></textarea>
-      <button type="submit" style="width:100%;background:var(--white);color:#050505;border:none;padding:14px 24px;font-family:Inter,sans-serif;font-size:12px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:opacity 0.2s" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">Submit</button>
-    </form>
-  </div>
-</div>
 
 <script>
 const PROJECTS=[
@@ -1693,8 +1676,6 @@ function openSpotlightModal(id){document.getElementById('spotlight-modal-overlay
 function closeSpotlightModal(){document.getElementById('spotlight-modal-overlay').style.display='none';document.body.style.overflow='';}
 function openShowcaseModal(id){document.getElementById('showcase-modal-overlay').style.display='flex';document.querySelectorAll('#showcase-modal-overlay .modal-report').forEach(m=>m.style.display='none');document.getElementById(id).style.display='block';document.body.style.overflow='hidden';}
 function closeShowcaseModal(){document.getElementById('showcase-modal-overlay').style.display='none';document.body.style.overflow='';}
-function openShowcaseSubmit(){document.getElementById('showcase-submit-overlay').style.display='flex';document.body.style.overflow='hidden';}
-function closeShowcaseSubmit(){document.getElementById('showcase-submit-overlay').style.display='none';document.body.style.overflow='';}
 function submitShowcase(e){e.preventDefault();var p=document.getElementById('sc-project').value,n=document.getElementById('sc-name').value,h=document.getElementById('sc-handle').value,d=document.getElementById('sc-disciplines').value,c=document.getElementById('sc-contribution').value,t=document.getElementById('sc-team').value;var body='Project Name: '+p+'\n\nYour Name: '+n+'\n\nInstagram: '+h+'\n\nDisciplines: '+d+'\n\nContribution:\n'+c+'\n\nTeam Members:\n'+t;window.location.href='mailto:fieldnotes@the-club.space?subject='+encodeURIComponent('Showcase Submission: '+p)+'&body='+encodeURIComponent(body);closeShowcaseSubmit();}
 document.getElementById('signup-form').addEventListener('submit', async function(e) {
   e.preventDefault();

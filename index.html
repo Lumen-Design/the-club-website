@@ -175,7 +175,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 .action-box{background:rgba(0,102,255,0.06);border-top:2px solid #0066FF;padding:1.25rem;margin-top:1.5rem}
 .action-label{font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0066FF;margin-bottom:0.75rem}
 .modal-bullet{border-left:2px solid #1A1A1A;padding-left:1rem;margin-bottom:0.6rem;font-size:13px;color:#666;line-height:1.6}
-.spotlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.spotlight-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
 .spotlight-tile{background:var(--panel-a);padding:0;cursor:pointer;transition:background 0.2s}
 .spotlight-tile:hover{background:var(--panel-b)}
 @media(max-width:768px){
@@ -183,9 +183,6 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 .nav-hamburger{display:block}
 .gear-tile{flex:0 0 100%}
 .spotlight-grid{grid-template-columns:1fr}
-}
-@media(max-width:900px){
-.spotlight-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -1379,7 +1376,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <p class="section-label">In The Spotlight</p>
       <div class="spotlight-grid">
         <div class="spotlight-tile" onclick="openSpotlightModal('modal-spotlight-001')">
-          <div style="width:100%;aspect-ratio:1/1;background:#1A1A1A"></div>
+          <div style="width:100%;min-height:320px;background:#1A1A1A"></div>
           <div style="padding:1.5rem">
             <div style="font-size:18px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.5rem">Alex Rivera</div>
             <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0066FF;margin-bottom:0.5rem">Sound Club</div>
@@ -1387,11 +1384,43 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
           </div>
         </div>
         <div class="spotlight-tile" onclick="openSpotlightModal('modal-spotlight-002')">
-          <div style="width:100%;aspect-ratio:1/1;background:#1A1A1A"></div>
+          <div style="width:100%;min-height:320px;background:#1A1A1A"></div>
           <div style="padding:1.5rem">
             <div style="font-size:18px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.5rem">Jordan Lee</div>
             <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FF0088;margin-bottom:0.5rem">Video Club</div>
             <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Video Director · Touring & Corporate</div>
+          </div>
+        </div>
+        <div class="spotlight-tile" onclick="openSpotlightModal('modal-spotlight-003')">
+          <div style="width:100%;min-height:320px;background:#1A1A1A"></div>
+          <div style="padding:1.5rem">
+            <div style="font-size:18px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.5rem">Morgan Davis</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#A8FF00;margin-bottom:0.5rem">Lighting Club</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Lighting Designer · Live Events</div>
+          </div>
+        </div>
+        <div class="spotlight-tile" onclick="openSpotlightModal('modal-spotlight-004')">
+          <div style="width:100%;min-height:320px;background:#1A1A1A"></div>
+          <div style="padding:1.5rem">
+            <div style="font-size:18px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.5rem">Taylor Kim</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0066FF;margin-bottom:0.5rem">Sound Club</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Systems Engineer · Install & Live</div>
+          </div>
+        </div>
+        <div class="spotlight-tile" onclick="openSpotlightModal('modal-spotlight-005')">
+          <div style="width:100%;min-height:320px;background:#1A1A1A"></div>
+          <div style="padding:1.5rem">
+            <div style="font-size:18px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.5rem">Casey Nguyen</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FF0088;margin-bottom:0.5rem">Video Club</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Camera Operator · Broadcast & Touring</div>
+          </div>
+        </div>
+        <div class="spotlight-tile" onclick="openSpotlightModal('modal-spotlight-006')">
+          <div style="width:100%;min-height:320px;background:#1A1A1A"></div>
+          <div style="padding:1.5rem">
+            <div style="font-size:18px;font-weight:700;letter-spacing:-0.01em;color:var(--white);margin-bottom:0.5rem">Riley Sato</div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#A8FF00;margin-bottom:0.5rem">Lighting Club</div>
+            <div style="font-size:13px;color:var(--text-muted);line-height:1.6">Programmer · Concert & Theatre</div>
           </div>
         </div>
       </div>
@@ -1429,6 +1458,62 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:0.5rem">Jordan Lee</div>
       <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FF0088;margin-bottom:0.5rem">Video Club</div>
       <div style="font-size:13px;color:var(--text-muted);margin-bottom:2.5rem">Video Director · Touring & Corporate</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">About</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">This person's story will go here.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">Bucket List</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">One thing they want to do before they're done.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">From a Friend</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">A short story or quote from someone who knows them well.</p>
+      <div style="font-size:13px;color:var(--text-muted)">@handle</div>
+    </div>
+
+    <div id="modal-spotlight-003" class="modal-report" style="display:none">
+      <div style="width:100%;max-width:300px;min-height:300px;background:#1A1A1A;border-radius:2px;margin-bottom:2rem"></div>
+      <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:0.5rem">Morgan Davis</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#A8FF00;margin-bottom:0.5rem">Lighting Club</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:2.5rem">Lighting Designer · Live Events</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">About</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">This person's story will go here.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">Bucket List</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">One thing they want to do before they're done.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">From a Friend</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">A short story or quote from someone who knows them well.</p>
+      <div style="font-size:13px;color:var(--text-muted)">@handle</div>
+    </div>
+
+    <div id="modal-spotlight-004" class="modal-report" style="display:none">
+      <div style="width:100%;max-width:300px;min-height:300px;background:#1A1A1A;border-radius:2px;margin-bottom:2rem"></div>
+      <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:0.5rem">Taylor Kim</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0066FF;margin-bottom:0.5rem">Sound Club</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:2.5rem">Systems Engineer · Install & Live</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">About</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">This person's story will go here.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">Bucket List</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">One thing they want to do before they're done.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">From a Friend</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">A short story or quote from someone who knows them well.</p>
+      <div style="font-size:13px;color:var(--text-muted)">@handle</div>
+    </div>
+
+    <div id="modal-spotlight-005" class="modal-report" style="display:none">
+      <div style="width:100%;max-width:300px;min-height:300px;background:#1A1A1A;border-radius:2px;margin-bottom:2rem"></div>
+      <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:0.5rem">Casey Nguyen</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#FF0088;margin-bottom:0.5rem">Video Club</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:2.5rem">Camera Operator · Broadcast & Touring</div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">About</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">This person's story will go here.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">Bucket List</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">One thing they want to do before they're done.</p>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">From a Friend</div>
+      <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">A short story or quote from someone who knows them well.</p>
+      <div style="font-size:13px;color:var(--text-muted)">@handle</div>
+    </div>
+
+    <div id="modal-spotlight-006" class="modal-report" style="display:none">
+      <div style="width:100%;max-width:300px;min-height:300px;background:#1A1A1A;border-radius:2px;margin-bottom:2rem"></div>
+      <div style="font-size:clamp(24px,3vw,36px);font-weight:900;letter-spacing:-0.03em;color:var(--white);margin-bottom:0.5rem">Riley Sato</div>
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#A8FF00;margin-bottom:0.5rem">Lighting Club</div>
+      <div style="font-size:13px;color:var(--text-muted);margin-bottom:2.5rem">Programmer · Concert & Theatre</div>
       <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">About</div>
       <p style="font-size:14px;color:#666;line-height:1.8;margin-bottom:2.5rem">This person's story will go here.</p>
       <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem;border-bottom:1px solid var(--border);padding-bottom:0.75rem">Bucket List</div>

@@ -59,6 +59,14 @@ export default function GearIntel() {
             Reports
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1px', background: 'var(--border)' }}>
+            {/* Report 004 */}
+            <div className="gear-tile" onClick={() => openGearModal('modal-gear-004')}>
+              <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'var(--sound)', marginBottom: '0.75rem' }}>June 19 &ndash; 28, 2026</div>
+              <div style={{ fontSize: '11px', color: 'var(--text-muted)', marginBottom: '0.5rem' }}>NO. 004</div>
+              <div style={{ fontSize: '20px', fontWeight: 700, letterSpacing: '-0.01em', color: 'var(--white)', marginBottom: '0.75rem' }}>Weekly Gear Intelligence</div>
+              <p style={{ fontSize: '13px', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '1.5rem' }}>Blackmagic Resolve 21.0.1, Canon Cinema EOS firmware, Clear-Com FreeSpeak Cell, Green Hippo Estuary Series, Planar Mantis LED, ProPresenter 21.4 BETA, and the full InfoComm 2026 afterglow sweep.</p>
+              <span style={{ fontSize: '12px', color: 'var(--text-muted)', transition: 'color 0.2s' }}>Read Report &rarr;</span>
+            </div>
             {/* Report 003 */}
             <div className="gear-tile" onClick={() => openGearModal('modal-gear-003')}>
               <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' as const, color: 'var(--sound)', marginBottom: '0.75rem' }}>June 7&ndash;14, 2026</div>

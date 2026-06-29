@@ -46,7 +46,7 @@ export default function Navigation() {
           <div className="nav-more" ref={dropdownRef}>
             <span className="nav-more-btn" onClick={(e) => { e.stopPropagation(); setDropdownOpen(!dropdownOpen); }}>More ▾</span>
             <div className={`nav-dropdown${dropdownOpen ? ' open' : ''}`}>
-              <a onClick={() => { setDropdownOpen(false); window.location.href = 'mailto:fieldnotes@the-club.space'; }}>Contact</a>
+              <a href="mailto:fieldnotes@the-club.space" onClick={() => setDropdownOpen(false)}>Contact</a>
               <Link href="/field-notes" onClick={() => setDropdownOpen(false)}>Field Notes</Link>
               <Link href="/gear-intel" onClick={() => setDropdownOpen(false)}>Gear Intel</Link>
               <Link href="/spotlight" onClick={() => setDropdownOpen(false)}>Spotlight</Link>
@@ -63,7 +63,7 @@ export default function Navigation() {
         <Link href="/lighting-club" className="lighting" onClick={() => setMobileMenuOpen(false)}>Lighting Club</Link>
         <Link href="/video-club" className="video" onClick={() => setMobileMenuOpen(false)}>Video Club</Link>
         <hr className="mobile-menu-divider" />
-        <a onClick={() => { setMobileMenuOpen(false); window.location.href = 'mailto:fieldnotes@the-club.space'; }}>Contact</a>
+        <a href="mailto:fieldnotes@the-club.space" onClick={() => setMobileMenuOpen(false)}>Contact</a>
         <Link href="/field-notes" onClick={() => setMobileMenuOpen(false)}>Field Notes</Link>
         <Link href="/gear-intel" onClick={() => setMobileMenuOpen(false)}>Gear Intel</Link>
         <Link href="/spotlight" onClick={() => setMobileMenuOpen(false)}>Spotlight</Link>

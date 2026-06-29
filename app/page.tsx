@@ -12,8 +12,8 @@ export default function Home() {
         <div className="hero-inner">
           <p className="hero-eyebrow">Sound Club &middot; Lighting Club &middot; Video Club</p>
           <h1 className="hero-title">
-            <span style={{ fontWeight: 300 }}>THE</span><br />
-            <span style={{ display: 'inline-flex', alignItems: 'flex-end' }}>
+            <span style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}>THE</span><br />
+            <span style={{ display: 'inline-flex', alignItems: 'flex-end', fontFamily: 'Inter, sans-serif', fontWeight: 700 }}>
               CLUB
               <div className="hero-sym">
                 <div className="b b-tl" />

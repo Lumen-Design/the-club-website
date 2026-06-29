@@ -45,7 +45,7 @@ export default function FieldNotesPage() {
         <div className="disc-hero-inner">
           <Link href="/" className="disc-hero-back">&#8592; THE CLUB</Link>
           <div className="disc-hero-kicker" style={{ color: 'var(--white)' }}>FIELD NOTES</div>
-          <h1 className="disc-hero-title">THE<br />FIELD NOTES</h1>
+          <h1 className="disc-hero-title">FIELD NOTES</h1>
           <p className="disc-hero-desc">Member stories. Industry insight. From the people doing the work.</p>
         </div>
       </section>

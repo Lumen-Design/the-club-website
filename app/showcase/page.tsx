@@ -48,10 +48,7 @@ export default function Showcase() {
           <div className="disc-hero-kicker" style={{ color: 'var(--white)' }}>
             Showcase
           </div>
-          <h1 className="disc-hero-title">
-            The<br />
-            Showcase
-          </h1>
+          <h1 className="disc-hero-title">Showcase</h1>
           <p className="disc-hero-desc">
             Real work. Real people. Real craft.
           </p>

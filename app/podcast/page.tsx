@@ -45,7 +45,7 @@ export default function PodcastPage() {
         <div className="disc-hero-inner">
           <Link href="/" className="disc-hero-back">&#8592; THE CLUB</Link>
           <div className="disc-hero-kicker" style={{ color: 'var(--white)' }}>The Club Podcast</div>
-          <h1 className="disc-hero-title">THE<br />PODCAST</h1>
+          <h1 className="disc-hero-title">THE CLUB PODCAST</h1>
           <p className="disc-hero-desc">Learn. Connect. Grow.</p>
           <div style={{ fontSize: '10px', fontWeight: 600, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--text-muted)', marginTop: '2rem' }}>Hosted by The Club Core</div>
         </div>

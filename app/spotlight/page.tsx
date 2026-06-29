@@ -144,10 +144,7 @@ export default function Spotlight() {
           <div className="disc-hero-kicker" style={{ color: 'var(--white)' }}>
             Spotlight
           </div>
-          <h1 className="disc-hero-title">
-            The<br />
-            Spotlight
-          </h1>
+          <h1 className="disc-hero-title">Spotlight</h1>
           <p className="disc-hero-desc">
             One member. Their story. Their moment.
           </p>

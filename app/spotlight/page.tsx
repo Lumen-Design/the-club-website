@@ -130,7 +130,7 @@ export default function Spotlight() {
         className="disc-hero"
         style={{
           background:
-            'radial-gradient(ellipse at 60% 40%, rgba(255,255,255,0.04) 0%, #050505 70%)',
+            'radial-gradient(ellipse at 30% 50%, rgba(45, 45, 45, 0.9) 0%, rgba(20, 20, 20, 0.95) 50%, #050505 100%)',
         }}
       >
         <div className="disc-hero-inner">

@@ -169,6 +169,139 @@ export default function GearIntel() {
               &times;
             </button>
 
+            {/* ====== REPORT 004 ====== */}
+            {activeModal === 'modal-gear-004' && (
+              <div>
+                {/* Header */}
+                <div style={{ fontSize: '10px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: '#0066FF', marginBottom: '0.75rem' }}>Gear Intel &middot; The Club</div>
+                <div style={{ height: '2px', background: '#0066FF', marginBottom: '1.5rem' }} />
+                <div style={{ marginBottom: '1rem' }}>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Coverage: June 19&ndash;28, 2026</span>
+                </div>
+                <p style={{ fontSize: '12px', color: 'var(--text-dim)', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '2.5rem' }}><strong style={{ color: 'var(--text-muted)' }}>How to read this report.</strong> Gear Intel is a confirmed-only sweep. Every item listed has a verifiable source &mdash; official release notes, manufacturer announcements, or first-party documentation. Rumors, leaks, and unverified social media posts are excluded by rule.</p>
+
+                {/* Executive Summary */}
+                <h2 style={{ fontSize: 'clamp(24px,3vw,36px)', fontWeight: 900, letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>Weekly Gear Intelligence</h2>
+                <p className="modal-body-text">Blackmagic Resolve 21.0.1, Canon Cinema EOS firmware, Clear-Com FreeSpeak Cell, Green Hippo Estuary Series, Planar Mantis LED, ProPresenter 21.4 BETA, and the full InfoComm 2026 afterglow sweep.</p>
+
+                <div style={{ margin: '2rem 0' }}>
+                  <div className="modal-bullet">Blackmagic DaVinci Resolve 21.0.1 + Fusion Studio 21.0.1 (June 25) &mdash; Sony &alpha;7R VI RAW support, Affinity 16-bit, HDR H.265 metadata fixes.</div>
+                  <div className="modal-bullet">Canon Cinema EOS C400/C80/C50 firmware (June 25) &mdash; USB-C external camera control, SRT auto-reconnection.</div>
+                  <div className="modal-bullet">Clear-Com FreeSpeak Cell &mdash; LTE/5G beltpack, Arcadia IFB + AES67 support, post-HelixNet migration path.</div>
+                  <div className="modal-bullet">Green Hippo Estuary Series &mdash; MC1/MC2/MC4, 256 layers, one-frame latency, built on tvONE CALICO.</div>
+                  <div className="modal-bullet">Planar Mantis Series &mdash; 1.5/1.9/2.6mm rental LED, tool-less setup; EverPixel/TruMicro MIP LED architecture.</div>
+                  <div className="modal-bullet">Disguise Designer Looks &amp; Compositions &mdash; API-exposed layer control (in development, watch for ship date).</div>
+                  <div className="modal-bullet">ProPresenter 21.4 BETA &mdash; bidirectional TCP control, Planning Center custom sequence import.</div>
+                  <div className="modal-bullet">Cobalt Digital openGear &mdash; 9925-FSx Frame Sync + 9981-LUTx, license-expandable 1&rarr;4 paths.</div>
+                </div>
+
+                {/* Brand-by-Brand */}
+                <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase' as const, color: '#0066FF', margin: '3rem 0 2rem', borderBottom: '1px solid var(--border)', paddingBottom: '1rem' }}>Brand-by-Brand Findings</div>
+
+                {/* Blackmagic Resolve */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Blackmagic Design &mdash; DaVinci Resolve 21.0.1 + Fusion Studio 21.0.1</div>
+                  <p className="modal-body-text">Released June 25, 2026. Maintenance update adding Sony &alpha;7R VI RAW support, Affinity Photo 16-bit TIFF import, and fixes for HDR H.265 metadata handling. Fusion Studio 21.0.1 ships simultaneously with matching codec and stability improvements.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">DaVinci Resolve 21.0 &rarr; 21.0.1 (Sony &alpha;7R VI RAW, Affinity 16-bit, HDR H.265 metadata fixes)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> RAW camera support expansions and HDR metadata fixes directly affect post workflows. Update if you&apos;re ingesting Sony RAW or delivering HDR H.265.</p>
+                  <p className="modal-source">Source: Blackmagic Design official release, June 25, 2026</p>
+                </div>
+
+                {/* Canon Cinema EOS */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Canon &mdash; Cinema EOS C400/C80/C50 Firmware</div>
+                  <p className="modal-body-text">Released June 25, 2026. Adds USB-C external camera control support and SRT auto-reconnection for live streaming workflows. Applies to C400, C80, and C50 camera bodies.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">Prior firmware &rarr; USB-C external camera control + SRT auto-reconnection</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> USB-C control opens external controller workflows. SRT auto-reconnection improves reliability for live streaming and remote production.</p>
+                  <p className="modal-source">Source: Canon official firmware release, June 25, 2026</p>
+                </div>
+
+                {/* Clear-Com */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Clear-Com &mdash; FreeSpeak Cell</div>
+                  <p className="modal-body-text">LTE/5G cellular intercom beltpack now shipping. Features Arcadia IFB integration and AES67 audio-over-IP support. Provides a post-HelixNet migration path for venues moving away from legacy wired intercom infrastructure.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">RF-based FreeSpeak / wired HelixNet &rarr; FreeSpeak Cell (LTE/5G, Arcadia IFB, AES67)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> Eliminates RF coordination entirely for intercom. Arcadia IFB + AES67 means full IP integration. This is a structural shift for venue installs.</p>
+                  <p className="modal-source">Source: Clear-Com official product announcement</p>
+                </div>
+
+                {/* Green Hippo */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Green Hippo &mdash; Estuary Series</div>
+                  <p className="modal-body-text">Estuary MC1/MC2/MC4 media servers. 256 layers with one-frame latency, built on tvONE CALICO hardware platform. Designed for touring and installation media server applications.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">Previous Hippotizer range &rarr; Estuary Series (MC1/MC2/MC4, 256 layers, one-frame latency, CALICO platform)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> One-frame latency and 256 layers on a purpose-built hardware platform. Direct competitor to Disguise in the touring media server space.</p>
+                  <p className="modal-source">Source: Green Hippo / tvONE official announcement</p>
+                </div>
+
+                {/* Planar Mantis */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Planar &mdash; Mantis Series Rental LED</div>
+                  <p className="modal-body-text">1.5mm, 1.9mm, and 2.6mm pixel pitch rental LED panels with tool-less setup. Built on Planar&apos;s EverPixel and TruMicro MIP LED architecture for improved color uniformity and viewing angles.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">Previous Planar rental LED lineup &rarr; Mantis Series (1.5/1.9/2.6mm, tool-less, EverPixel/TruMicro MIP)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> Tool-less setup reduces load-in time for rental and staging. MIP LED architecture improves on-camera performance for broadcast and IMAG applications.</p>
+                  <p className="modal-source">Source: Planar official product announcement</p>
+                </div>
+
+                {/* Disguise */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Disguise &mdash; Designer Looks &amp; Compositions</div>
+                  <p className="modal-body-text">API-exposed layer control feature currently in development. Allows external systems to control Disguise layer properties programmatically. Watch for official ship date announcement.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">Manual layer control &rarr; API-exposed Looks &amp; Compositions (in development)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> API control of layer properties enables automation and integration with external show control systems. In development &mdash; watch for ship date.</p>
+                  <p className="modal-source">Source: Disguise product roadmap briefing</p>
+                </div>
+
+                {/* ProPresenter */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">ProPresenter &mdash; 21.4 BETA</div>
+                  <p className="modal-body-text">Beta release adds bidirectional TCP control protocol and Planning Center custom sequence import. TCP control enables external systems to send commands to and receive state from ProPresenter.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">ProPresenter 21.3 &rarr; 21.4 BETA (bidirectional TCP, Planning Center custom sequences)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> Bidirectional TCP opens real show control integration. Planning Center custom sequence import streamlines worship production workflows.</p>
+                  <p className="modal-source">Source: Renewed Vision beta release notes</p>
+                </div>
+
+                {/* Cobalt Digital */}
+                <div className="modal-brand">
+                  <div className="modal-brand-name">Cobalt Digital &mdash; openGear 9925-FSx + 9981-LUTx</div>
+                  <p className="modal-body-text">New openGear frame sync (9925-FSx) and LUT processor (9981-LUTx) cards. License-expandable from 1 to 4 processing paths per card, reducing rack space and per-channel cost for broadcast infrastructure.</p>
+                  <div className="before-after">
+                    <div className="before-after-label">Before &rarr; After</div>
+                    <div className="before-after-text">Fixed single-path openGear cards &rarr; License-expandable 1&rarr;4 path cards (9925-FSx, 9981-LUTx)</div>
+                  </div>
+                  <p className="modal-why"><strong>Why it matters:</strong> Scale processing density without adding frames. License model lets you buy what you need now and expand later.</p>
+                  <p className="modal-source">Source: Cobalt Digital official product announcement</p>
+                </div>
+
+                {/* Footer */}
+                <div style={{ borderTop: '1px solid var(--border)', marginTop: '2.5rem', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Gear Intel &middot; The Club &middot; Confirmed announcements only.</span>
+                  <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Next sweep: Sunday, July 5, 2026</span>
+                </div>
+              </div>
+            )}
+
             {/* ====== REPORT 003 ====== */}
             {activeModal === 'modal-gear-003' && (
               <div>

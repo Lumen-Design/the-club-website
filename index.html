@@ -194,6 +194,11 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
 .showcase-grid{grid-template-columns:1fr}
 .podcast-about-grid{grid-template-columns:1fr!important;gap:3rem!important}
 .collective-hero-title{font-size:3.5rem;line-height:1.1;word-break:break-word;overflow-wrap:break-word}
+.collective-building-grid{display:flex!important;flex-direction:column!important;width:100%;gap:0!important;background:none!important}
+.collective-building-grid>*{width:100%;border-bottom:1px solid #1A1A1A}
+.collective-building-grid>*:last-child{border-bottom:none}
+.collective-stories-grid{display:flex!important;flex-direction:column!important;width:100%;gap:0!important;background:none!important}
+.collective-stories-grid>*{width:100%}
 .reps-grid{display:flex;flex-direction:row;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:16px;padding-bottom:16px;scrollbar-width:none}
 .reps-grid::-webkit-scrollbar{display:none}
 .reps-grid>*{min-width:280px;scroll-snap-align:start;flex-shrink:0}
@@ -623,7 +628,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
     <div class="section-inner">
       <p class="section-label">What We're Building</p>
       <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.15;margin-bottom:4rem">Not another production company.<br>Not another social media page.<br>Not another job board.<br>We're building a collective.</h2>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)">
+      <div class="collective-building-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)">
         <div style="background:var(--panel-a);padding:2.5rem;border-top:2px solid var(--border);cursor:pointer;transition:all 0.2s" onmouseover="this.style.borderTopColor='var(--white)';this.style.background='var(--panel-b)'" onmouseout="this.style.borderTopColor='var(--border)';this.style.background='var(--panel-a)'">
           <div style="font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem">Showcase</div>
           <p style="font-size:14px;color:var(--text-muted);line-height:1.7">Real work. Real people. Real stories. Submitted by the community.</p>
@@ -680,7 +685,7 @@ footer{padding:4rem 2rem;border-top:1px solid var(--border)}
       <p class="section-label">Stories Worth Sharing</p>
       <h2 style="font-size:clamp(28px,4vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;margin-bottom:1.5rem">Behind every great project is a story.</h2>
       <p style="font-size:16px;color:var(--text-muted);line-height:1.8;max-width:600px;margin-bottom:3rem">We're building a platform to share them.</p>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
+      <div class="collective-stories-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)">
         <div style="background:var(--panel-a);padding:2.5rem;border:1px solid var(--border)">
           <div style="font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem">Podcast</div>
           <div style="font-size:18px;font-weight:700;margin-bottom:1rem">The Field Notes Podcast</div>

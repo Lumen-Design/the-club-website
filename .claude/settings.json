@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "beehiiv": {
+      "type": "url",
+      "url": "https://mcp.beehiiv.com/mcp",
+      "headers": {
+        "Authorization": "Bearer eenUsXcelFMGq2cE1n7uBRiAdbpQ07HwvbxrRKTqUfcqla0mMrUzvVxTmPdrgeVt"
+      }
+    }
+  }
+}
